@@ -1,9 +1,11 @@
 import React from "react";
-import Mainpage from "./Mainpage";
-// import ErrorNotification from "./ErrorNotification";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Nav from "./Nav";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import ErrorNotification from "./ErrorNotification";
+import Nav from "./Nav";
+import Mainpage from "./Mainpage";
+import LoginForm from "./LoginForm";
+
 
 function App() {
 //   const [launchInfo, setLaunchInfo] = useState([]);
@@ -36,6 +38,7 @@ function App() {
       <div className="container-fluid">
         <Routes>
           <Route path="/" element={<Mainpage />} />
+          <Route path="login/" element={<LoginForm />} />
         </Routes>
       </div>
       </main>
