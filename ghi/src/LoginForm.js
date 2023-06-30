@@ -17,6 +17,36 @@ function LoginForm() {
         setPassword(value)
     }
 
+    //     const handleSubmit = async (event) => {
+    //     event.preventDefault()
+    //     const data = {}
+    //     data.email = email
+    //     data.password = password
+
+    //     const loginUrl = 'http://localhost:3000/api/login/'
+    //     const fetchConfig = {
+    //         method: 'post',
+    //         body: JSON.stringify(data),
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         }
+    //     }
+    //     const response = await fetch(loginUrl, fetchConfig)
+    //     if (response.ok) {
+
+    //         setShowToast(true);
+    //         setToastVariant('success');
+    //         setToastMessage(`Sale for $${price} created.`)
+
+    //         setEmail('')
+    //         setPassword('')
+    //     } else {
+    //         setShowToast(true);
+    //         setToastVariant('danger');
+    //         setToastMessage("Error creating sale.")
+    //     }
+    // }
+
     return (
         <div className="row">
           <div className="offset-3 col-6">

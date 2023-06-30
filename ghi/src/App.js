@@ -38,7 +38,7 @@ function App() {
       <div className="container-fluid">
         <Routes>
           <Route path="/" element={<Mainpage />} />
-          <Route path="login/" element={<LoginForm />} />
+          <Route path="/login/" element={<LoginForm />} />
         </Routes>
       </div>
       </main>
