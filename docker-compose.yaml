@@ -3,6 +3,7 @@ services:
   fastapi:
     environment:
       CORS_HOST: http://localhost:3000
+      WATCHPACK_POLLING: "true"
     build:
       context: api
       dockerfile: Dockerfile.dev
