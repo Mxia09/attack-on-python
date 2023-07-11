@@ -1,12 +1,9 @@
 import logo from './attack-on-python-logo.png'
 
-<<<<<<< HEAD
-=======
 const playGame = () => {
   window.location.href = "play/"
 }
 
->>>>>>> main
 function Mainpage() {
   return (
     <div className="px-4 py-5 my-5 text-center">
@@ -18,10 +15,7 @@ function Mainpage() {
         <p className="lead mb-4">
           Learn Python
         </p>
-<<<<<<< HEAD
-=======
         <button onClick={playGame} className="btn btn-primary">Play</button>
->>>>>>> main
       </div>
     </div>
   );

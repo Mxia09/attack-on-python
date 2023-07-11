@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-<<<<<<< HEAD
-function LoginForm() {
-=======
 function LoginForm(props) {
->>>>>>> main
     const [email, setEmail] = useState ('')
     const [password, setPassword] = useState('')
 
@@ -21,39 +17,6 @@ function LoginForm(props) {
         setPassword(value)
     }
 
-<<<<<<< HEAD
-    //     const handleSubmit = async (event) => {
-    //     event.preventDefault()
-    //     const data = {}
-    //     data.email = email
-    //     data.password = password
-
-    //     const loginUrl = 'http://localhost:3000/api/login/'
-    //     const fetchConfig = {
-    //         method: 'post',
-    //         body: JSON.stringify(data),
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         }
-    //     }
-    //     const response = await fetch(loginUrl, fetchConfig)
-    //     if (response.ok) {
-
-    //         setShowToast(true);
-    //         setToastVariant('success');
-    //         setToastMessage(`Sale for $${price} created.`)
-
-    //         setEmail('')
-    //         setPassword('')
-    //     } else {
-    //         setShowToast(true);
-    //         setToastVariant('danger');
-    //         setToastMessage("Error creating sale.")
-    //     }
-    // }
-
-    return (
-=======
         const handleSubmit = async (event) => {
         event.preventDefault()
         const data = {}
@@ -86,16 +49,11 @@ function LoginForm(props) {
 
     return (
       <div>
->>>>>>> main
         <div className="row">
           <div className="offset-3 col-6">
             <div className="shadow p-4 mt-4">
               <h1>Login</h1>
-<<<<<<< HEAD
-              <form id="login-form">
-=======
               <form onSubmit={handleSubmit} id="login-form">
->>>>>>> main
 
                 <div className="form-floating mb-3">
                     <input onChange={handleEmail} value={email} placeholder="Email" required type="string" name="email" id="email" className="form-control"/>
@@ -110,15 +68,10 @@ function LoginForm(props) {
                 <button className="btn btn-primary">Login</button>
               </form>
             </div>
-<<<<<<< HEAD
-          </div>
-        </div>
-=======
             {props.toast}
           </div>
         </div>
         </div>
->>>>>>> main
       )
 }
 

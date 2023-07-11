@@ -1,25 +1,17 @@
-<<<<<<< HEAD
-import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-=======
 import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Toast, ToastContainer} from 'react-bootstrap';
->>>>>>> main
 // import ErrorNotification from "./ErrorNotification";
 import Nav from "./Nav";
 import Mainpage from "./Mainpage";
 import LoginForm from "./LoginForm";
-<<<<<<< HEAD
 
 
-function App() {
+
 //   const [launchInfo, setLaunchInfo] = useState([]);
 //   const [error, setError] = useState(null);
 
-=======
 import Play from "./Play"
 
 
@@ -52,7 +44,6 @@ function App(props) {
 //   const [launchInfo, setLaunchInfo] = useState([]);
 //   const [error, setError] = useState(null);
 
->>>>>>> main
 //   useEffect(() => {
 //     async function getData() {
 //       let url = `${process.env.REACT_APP_API_HOST}/api/launch-details`;
@@ -80,12 +71,8 @@ function App(props) {
       <div className="container-fluid">
         <Routes>
           <Route path="/" element={<Mainpage />} />
-<<<<<<< HEAD
-          <Route path="/login/" element={<LoginForm />} />
-=======
           <Route path="/login" element={<LoginForm toast={toast} showToast= {showToast} setShowToast={setShowToast} toastMessage={toastMessage} setToastMessage={setToastMessage} toastVariant={toastVariant} setToastVariant={setToastVariant} />} />
           <Route path="/play" element={<Play />} />
->>>>>>> main
         </Routes>
       </div>
       </main>
