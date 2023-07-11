@@ -10,7 +10,7 @@ import linkedInImage from './images/linkedin-image.png';
 function About() {
   return (
     <div className="outer-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', flexDirection: 'column' }}>
-      <img style={{ marginTop: "30px"}} src={logo} height="100px" width="100px"/>
+      <img style={{ marginTop: 75}} src={logo} height="100px" width="100px" alt="some_image" />
       <h1 style={{ marginBottom: "30px", marginTop: "30px"}}>About us</h1>
       <div className="info-container" style={{ border: '1px solid black', padding: '20px', maxWidth: '600px', textAlign: 'center' }}>
         <h2 style={{ marginTop: "30px"}}>Info</h2>
@@ -30,7 +30,7 @@ function About() {
             <h5 style={{ margin: '0' }}>Russ</h5>
             <p style={{ margin: '0' }}>Software Engineer</p>
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
-                <a href="https://gitlab.com/russcanhelp" target="_blank" rel="noopener noreferrer" style={{ marginRight: '5px' }}><img src={gitLabImage} height="50px" width="50px" /></a>
+                <a href="https://gitlab.com/russcanhelp" target="_blank" rel="noopener noreferrer" style={{ marginRight: '5px' }}><img src={gitLabImage} height="50px" width="50px" alt="Russ_image"/></a>
                 <a href="https://www.linkedin.com/in/russell-cruz/" target="_blank" rel="noopener noreferrer" style={{ marginLeft: '5px' }}><img src={linkedInImage} alt="linked_in_image" height="50px" width="50px" /></a>
             </div>
         </div>
@@ -39,7 +39,7 @@ function About() {
             <h5 style={{ margin: '0' }}>Max</h5>
             <p style={{ margin: '0' }}>Software Engineer</p>
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
-                <a href="https://gitlab.com/mvxwang" target="_blank" rel="noopener noreferrer" style={{ marginRight: '5px' }}><img src={gitLabImage} height="50px" width="50px" /></a>
+                <a href="https://gitlab.com/mvxwang" target="_blank" rel="noopener noreferrer" style={{ marginRight: '5px' }}><img src={gitLabImage} height="50px" width="50px" alt="Max_image" /></a>
                 <a href="https://www.linkedin.com/in/maxwangasu/" target="_blank" rel="noopener noreferrer" style={{ marginLeft: '5px' }}><img src={linkedInImage} alt="linked_in_image" height="50px" width="50px" /></a>
             </div>
         </div>
@@ -48,7 +48,7 @@ function About() {
             <h5 style={{ margin: '0' }}>Marvin</h5>
             <p style={{ margin: '0' }}>Software Engineer</p>
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
-                <a href="https://gitlab.com/Mxia09" target="_blank" rel="noopener noreferrer" style={{ marginRight: '5px' }}><img src={gitLabImage} height="50px" width="50px" /></a>
+                <a href="https://gitlab.com/Mxia09" target="_blank" rel="noopener noreferrer" style={{ marginRight: '5px' }}><img src={gitLabImage} height="50px" width="50px" alt="Marvin_image"/></a>
                 <a href="https://www.linkedin.com/in/marvin-xia/" target="_blank" rel="noopener noreferrer" style={{ marginLeft: '5px' }}><img src={linkedInImage} alt="linked_in_image" height="50px" width="50px" /></a>
             </div>
         </div>
@@ -57,7 +57,7 @@ function About() {
             <h5 style={{ margin: '0' }}>Jorge</h5>
             <p style={{ margin: '0' }}>Software Engineer</p>
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
-                <a href="https://gitlab.com/landerosjorge" target="_blank" rel="noopener noreferrer" style={{ marginRight: '5px' }}><img src={gitLabImage} height="50px" width="50px" /></a>
+                <a href="https://gitlab.com/landerosjorge" target="_blank" rel="noopener noreferrer" style={{ marginRight: '5px' }}><img src={gitLabImage} height="50px" width="50px" alt="Jorge_image"/></a>
                 <a href="https://www.linkedin.com/in/landerosjorge/" target="_blank" rel="noopener noreferrer" style={{ marginLeft: '5px' }}><img src={linkedInImage} alt="linked_in_image" height="50px" width="50px" /></a>
             </div>
         </div>
@@ -66,7 +66,7 @@ function About() {
             <h5 style={{ margin: '0' }}>Fred</h5>
             <p style={{ margin: '0' }}>Software Engineer</p>
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
-                <a href="https://gitlab.com/fred3bowden" target="_blank" rel="noopener noreferrer" style={{ marginRight: '5px' }}><img src={gitLabImage} height="50px" width="50px" /></a>
+                <a href="https://gitlab.com/fred3bowden" target="_blank" rel="noopener noreferrer" style={{ marginRight: '5px' }}><img src={gitLabImage} height="50px" width="50px" alt="Fred_image" /></a>
                 <a href="https://www.linkedin.com/in/fred-bowden-373224213/" target="_blank" rel="noopener noreferrer" style={{ marginLeft: '5px' }}><img src={linkedInImage} alt="linked_in_image" height="50px" width="50px" /></a>
             </div>
         </div>
