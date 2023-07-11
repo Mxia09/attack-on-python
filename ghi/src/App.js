@@ -8,6 +8,7 @@ import Mainpage from "./Mainpage";
 import LoginForm from "./LoginForm";
 import Play from "./Play";
 import About from "./About";
+import ForgotPasswordForm from "./ForgotPassword";
 
 
 function App(props) {
@@ -68,6 +69,7 @@ function App(props) {
           <Route path="/" element={<Mainpage />} />
           <Route path="/login" element={<LoginForm toast={toast} showToast= {showToast} setShowToast={setShowToast} toastMessage={toastMessage} setToastMessage={setToastMessage} toastVariant={toastVariant} setToastVariant={setToastVariant} />} />
           <Route path="/play" element={<Play />} />
+          <Route path="/forgot-password" element={<ForgotPasswordForm />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </div>
@@ -78,3 +80,4 @@ function App(props) {
 
 
 export default App;
+
