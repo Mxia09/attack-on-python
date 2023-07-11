@@ -6,7 +6,7 @@ import { Toast, ToastContainer} from 'react-bootstrap';
 import Nav from "./Nav";
 import Mainpage from "./Mainpage";
 import LoginForm from "./LoginForm";
-import Play from "./Play"
+import Play from "./Play";
 import About from "./About";
 
 
@@ -68,7 +68,7 @@ function App(props) {
           <Route path="/" element={<Mainpage />} />
           <Route path="/login" element={<LoginForm toast={toast} showToast= {showToast} setShowToast={setShowToast} toastMessage={toastMessage} setToastMessage={setToastMessage} toastVariant={toastVariant} setToastVariant={setToastVariant} />} />
           <Route path="/play" element={<Play />} />
-          <Route path="/about" element={<About/>} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </div>
       </main>
