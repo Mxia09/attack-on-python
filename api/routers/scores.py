@@ -19,8 +19,13 @@ def create_score(
     return repo.create(score)
     
 
-@router.get("/scores", response_model=Union[Error, List[ScoreOut]])
+# @router.get("/scores", response_model=Union[Error, List[ScoreOut]])
+# def get_all(
+#     repo: ScoreRepository = Depends()
+# ):
+#     return repo.get_all(),
+@router.get("/scores", response_model=List[ScoreOut])
 def get_all(
-    repo: ScoreRepository = Depends()
+    repo: ScoreRepository = Depends(),
 ):
-    return repo.get_all(),
+    return repo.get_all()
