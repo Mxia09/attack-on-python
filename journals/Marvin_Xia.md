@@ -21,6 +21,17 @@
 
 - Created the backend of the signup page over the break utilizing MongoDB. Did not work as much as I had hoped and spent more time reviewing old explorations to keep on track.
 
-7/10/2022
+# **July 10, 2023**
+
 - deleted signup backend; mongoDB was not needed and there was a miscommunication on my part
-- worked on scores endpoint and set up a POST but having issues with repository creation and getting the proper container to get set up after class. Will check with Jorge the following day since he was able to get his questions database set up 
+- worked on scores endpoint and set up a POST but having issues with repository creation and getting the proper container to get set up after class. Will check with Jorge the following day since he was able to get his questions database set up
+
+# **July 11, 2023**
+
+- completed endpoint for player leaderboard for players to see top scores. Scores can now do the following:
+
+1.  be created
+2.  list all scores in the database
+3.  show the individual score of a player(assuming it exists)
+4.  be updated
+5.  get deleted (this may be removed later on since backend is meant for a leaderboard for record keeping)
