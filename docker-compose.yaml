@@ -1,9 +1,14 @@
-# volumes:
+volumes:
+  attack-on-py-db:
+    external: true
 services:
   fastapi:
     environment:
       CORS_HOST: http://localhost:3000
       WATCHPACK_POLLING: "true"
+      DATABASE_URL: postgresql://example_user:secret@db/example
+      WAIT_HOSTS: db:5432
+      PORT: 8000
     build:
       context: api
       dockerfile: Dockerfile.dev
@@ -26,3 +31,13 @@ services:
       HOST: "0.0.0.0"
       PUBLIC_URL: http://localhost:3000
       REACT_APP_API_HOST: ${REACT_APP_API_HOST}
+  db:
+    image: postgres:14.5-bullseye
+    environment:
+      POSTGRES_PASSWORD: secret
+      POSTGRES_USER: example_user
+      POSTGRES_DB: example
+    ports:
+      - "15432:5432"
+    volumes:
+      - attack-on-py-db:/var/lib/postgresql/data
