@@ -103,26 +103,53 @@ class ScoreRepository:
                         result.append(score)
 
                     return result 
-                # return [
-                #     ScoreOut(   
-                #             id=score[0],
-                #             player_1=score[1],
-                #             player_2=score[2],
-                #             player_3=score[3],
-                #             player_4=score[4],
-                #             player_5=score[5],
-                #             player_6=score[6],
-                #             player_7=score[7],
-                #             player_8=score[8],
-                #             player_9=score[9],
-                #             player_10=score[10],
-                #             )
-                #     for score in db
-                # ]
-                
         except Exception as e:
             print(e)
             return {"message": "Unable to load scores"}
+
+    def get_one_score(self, score_id: int) -> Optional[ScoreOut]:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    result = db.execute(
+                        """
+                        SELECT id, 
+                        player_1, 
+                        player_2, 
+                        player_3, 
+                        player_4, 
+                        player_5,
+                        player_6, 
+                        player_7, 
+                        player_8, 
+                        player_9, 
+                        player_10
+                        FROM scores
+                        WHERE id = %s
+                        """,
+                        [score_id]
+                    ) 
+                    score = result.fetchone()
+                    if score is None:
+                        return None
+                    return ScoreOut(
+                            id=score[0],
+                            player_1=score[1],
+                            player_2=score[2],
+                            player_3=score[3],
+                            player_4=score[4],
+                            player_5=score[5],
+                            player_6=score[6],
+                            player_7=score[7],
+                            player_8=score[8],
+                            player_9=score[9],
+                            player_10=score[10]
+                    )
+                    # return self.score_in_to_out(record)
+        except Exception as e:
+            print(e)
+            return {"message": "Unable to load your score"}
+        
         
     def update(self, score_id: int, score: ScoreIn,) -> Union[ScoreOut, Error]:
         try:
@@ -163,10 +190,7 @@ class ScoreRepository:
         except Exception as e:
             print(e)
             return {"message": "Unable to update new score"}
-        
-    def score_in_to_out(self, id: int, score: ScoreIn):
-        old_data = score.dict()
-        return ScoreOut(id=id, **old_data)
+
     
     def delete_score(self, score_id: int) -> bool:
         try:
@@ -183,3 +207,9 @@ class ScoreRepository:
         except Exception as e: 
             print(e)
             return False
+
+
+        
+    def score_in_to_out(self, id: int, score: ScoreIn):
+        old_data = score.dict()
+        return ScoreOut(id=id, **old_data)

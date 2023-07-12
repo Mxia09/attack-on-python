@@ -41,9 +41,13 @@ def delete_score(
 ) -> bool:
     return repo.delete_score(score_id)
 
-# @router.get("/scores/{score_id}", response_model=Optional)
-# def get_one_score(
-#     score_id: int,
-#     repo: ScoreRepository = Depends(),
-# ) -> ScoreOut:
-#     return repo.get_one(score_id)
+@router.get("/scores/{score_id}", response_model=Optional[ScoreOut])
+def get_one_score(
+    score_id: int,
+    response: Response,
+    repo: ScoreRepository = Depends(),
+) -> ScoreOut:
+    score = repo.get_one_score(score_id)
+    if score is None:
+        response.status_code = 404
+    return score
