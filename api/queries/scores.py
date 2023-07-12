@@ -167,4 +167,19 @@ class ScoreRepository:
     def score_in_to_out(self, id: int, score: ScoreIn):
         old_data = score.dict()
         return ScoreOut(id=id, **old_data)
-        
+    
+    def delete_score(self, score_id: int) -> bool:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    db.execute(
+                        """
+                        DELETE FROM scores
+                        WHERE id = %s
+                        """,
+                        [score_id]
+                    )
+                    return True
+        except Exception as e: 
+            print(e)
+            return False

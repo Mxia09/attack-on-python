@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, Response
-from typing import Union, List
+from typing import Union, List, Optional
 from queries.scores import (
     Error,
     ScoreIn, 
@@ -33,3 +33,17 @@ def update_score(
     repo: ScoreRepository = Depends(),
 ) -> Union[Error, ScoreOut]:
     return repo.update(score_id, score)
+
+@router.delete("/scores/{score_id}", response_model=bool)
+def delete_score(
+    score_id: int,
+    repo: ScoreRepository = Depends(),
+) -> bool:
+    return repo.delete_score(score_id)
+
+# @router.get("/scores/{score_id}", response_model=Optional)
+# def get_one_score(
+#     score_id: int,
+#     repo: ScoreRepository = Depends(),
+# ) -> ScoreOut:
+#     return repo.get_one(score_id)
