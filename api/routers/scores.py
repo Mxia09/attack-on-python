@@ -2,8 +2,8 @@ from fastapi import APIRouter, Depends, Response
 from typing import Union, List, Optional
 from queries.scores import (
     Error,
-    ScoreIn, 
-    ScoreRepository, 
+    ScoreIn,
+    ScoreRepository,
     ScoreOut,)
 
 router = APIRouter()
@@ -11,13 +11,13 @@ router = APIRouter()
 
 @router.post("/scores", response_model=Union[ScoreOut, Error])
 def create_score(
-    score: ScoreIn, 
+    score: ScoreIn,
     response: Response,
     repo: ScoreRepository = Depends()
     ):
-    response.status_code = 400
+    response.status_code = 200
     return repo.create(score)
-    
+
 
 
 @router.get("/scores", response_model=Union[List[ScoreOut], Error])
