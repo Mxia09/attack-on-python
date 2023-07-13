@@ -103,7 +103,6 @@ function App(props) {
               }
             />
             <Route path="/play" element={<Play />} />
-            <Route path="/forgot-password" element={<ForgotPasswordForm />} />
             <Route path="/about" element={<About />} />
           </Routes>
         </div>
