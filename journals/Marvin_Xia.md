@@ -35,3 +35,8 @@
 3.  show the individual score of a player(assuming it exists)
 4.  be updated
 5.  get deleted (this may be removed later on since backend is meant for a leaderboard for record keeping)
+
+# **July 11, 2023**
+
+- merged backend function of leader board into main and received some feed back on router; Which was quuickly fixed and updated.
+- reviewed and brainstormed with team on some added functionality that can be done on the backend

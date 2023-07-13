@@ -11,7 +11,6 @@ import LoginForm from "./LoginForm";
 //   const [error, setError] = useState(null);
 
 import Play from "./Play";
-import Play from "./Play";
 import About from "./About";
 import ForgotPasswordForm from "./ForgotPassword";
 
