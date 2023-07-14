@@ -7,7 +7,7 @@ steps = [
             first_name VARCHAR(50) NOT NULL,
             last_name VARCHAR(50) NOT NULL,
             username VARCHAR(100) NOT NULL UNIQUE,
-            password VARCHAR(100) NOT NULL,
+            hashed_password VARCHAR(100) NOT NULL,
             email VARCHAR(100) NOT NULL,
             profile_picture TEXT NOT NULL,
             security_question TEXT NOT NULL,

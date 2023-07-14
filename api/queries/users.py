@@ -3,7 +3,7 @@ from typing import List, Union, Optional
 from queries.pool import pool
 
 
-class Error(BaseModel):
+class DuplicateUserError(ValueError):
     message: str
 
 
@@ -34,22 +34,25 @@ class UserOut(BaseModel):
     first_name: str
     last_name: str
     username: str
-    password: str
     email: str
     profile_picture: str
     security_question: str
     security_answer: str
 
 
+class UserOutWithPassword(UserOut):
+    hashed_password: str
+
+
 class UserRepository:
-    def create_user(self, user: UserIn) -> UserOut:
+    def create_user(self, user: UserIn, hashed_password: str) -> UserOutWithPassword:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
                     result = db.execute(
                         """
                         INSERT INTO users
-                            (first_name, last_name, username, password, email, profile_picture, security_question, security_answer)
+                            (first_name, last_name, username, hashed_password, email, profile_picture, security_question, security_answer)
                         VALUES
                             (%s, %s, %s, %s, %s, %s, %s, %s)
                         RETURNING id;
@@ -58,7 +61,7 @@ class UserRepository:
                             user.first_name,
                             user.last_name,
                             user.username,
-                            user.password,
+                            hashed_password,
                             user.email,
                             user.profile_picture,
                             user.security_question,
@@ -67,11 +70,11 @@ class UserRepository:
                     )
                     id = result.fetchone()[0]
                     old_data = user.dict()
-                    return UserOut(id=id, **old_data)
+                    return UserOutWithPassword(id=id, **old_data, hashed_password=hashed_password)
         except Exception as e:
             print(e)
             return {"Error": "Could not create User"}
-    def get_user(self, user_id: int) -> UserOut:
+    def get_user(self, username: str) -> UserOutWithPassword:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
@@ -82,25 +85,29 @@ class UserRepository:
                             first_name,
                             last_name,
                             username,
-                            password,
+                            hashed_password,
                             email,
                             profile_picture,
                             security_question,
                             security_answer
                         FROM users
-                        WHERE id = %s
+                        WHERE username = %s
+                        or email = %s
                         """,
-                    [user_id]
+                    [
+                        username,
+                        username
+                    ]
                     )
                     user = result.fetchone()
                     if user is None:
                         return None
-                    return UserOut(
+                    return UserOutWithPassword(
                         id=user[0],
                         first_name=user[1],
                         last_name=user[2],
                         username=user[3],
-                        password=user[4],
+                        hashed_password=user[4],
                         email=user[5],
                         profile_picture=user[6],
                         security_question=user[7],
@@ -109,37 +116,36 @@ class UserRepository:
         except Exception as e:
             print(e)
             return {"Error": "Could not get that user"}
-    def get_all(self) -> List[UserOut]:
+    def get_all(self) -> List[UserOutWithPassword]:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
                     result = db.execute(
                         """
-                        SELECT id, first_name, last_name, username, password, email, profile_picture, security_question, security_answer
+                        SELECT id, first_name, last_name, username, hashed_password, email, profile_picture, security_question, security_answer
                         FROM users
                         ORDER BY id;
                         """
                     )
                     result = []
                     for user in db:
-                        user = UserOut(
+                        user = UserOutWithPassword(
                             id=user[0],
                             first_name=user[1],
                             last_name=user[2],
                             username=user[3],
-                            password=user[4],
+                            hashed_password=user[4],
                             email=user[5],
                             profile_picture=user[6],
                             security_question=user[7],
                             security_answer=user[8]
                         )
                         result.append(user)
-                        print(user)
-                        return result
+                    return result
         except Exception as e:
             print(e)
             return {"Error": "Could not get all Users"}
-    def update_user(self, user_id: int, user: UserIn) -> UserOut:
+    def update_user(self, user_id: int, user: UserUpdate, hashed_password: str) -> UserOutWithPassword:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
@@ -149,7 +155,7 @@ class UserRepository:
                         SET first_name = %s,
                         last_name = %s,
                         username = %s,
-                        password = %s,
+                        hashed_password = %s,
                         email = %s,
                         profile_picture = %s,
                         security_question = %s,
@@ -159,7 +165,7 @@ class UserRepository:
                             user.first_name,
                             user.last_name,
                             user.username,
-                            user.password,
+                            hashed_password,
                             user.email,
                             user.profile_picture,
                             user.security_question,
@@ -167,7 +173,7 @@ class UserRepository:
                         ]
                     )
                     old_data = user.dict()
-                    return UserOut(id=user_id, **old_data)
+                    return UserOutWithPassword(id=user_id, **old_data, hashed_password=hashed_password)
         except Exception as e:
             print(e)
             return {"Error": "Could not update that User"}
@@ -183,4 +189,5 @@ class UserRepository:
                         [user_id]
                     )
         except Exception as e:
+            print(e)
             return {"Error": "Could not delete User"}
