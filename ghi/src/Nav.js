@@ -52,6 +52,11 @@ function Nav() {
                   Signup
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/leaderboard/">
+                  LeaderBoard
+                </NavLink>
+              </li>
               <li>
                 <hr className="dropdown-divider" />
               </li>

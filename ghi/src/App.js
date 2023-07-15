@@ -11,6 +11,7 @@ import LoginForm from "./LoginForm";
 //   const [error, setError] = useState(null);
 
 import Play from "./Play";
+import LeaderBoard from "./LeaderBoard";
 import About from "./About";
 import ForgotPasswordForm from "./ForgotPassword";
 
@@ -103,6 +104,7 @@ function App(props) {
             />
             <Route path="/play" element={<Play />} />
             <Route path="/about" element={<About />} />
+            <Route path="/leaderboard" element={<LeaderBoard />} />
           </Routes>
         </div>
       </main>
