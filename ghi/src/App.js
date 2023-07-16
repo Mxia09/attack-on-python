@@ -6,6 +6,7 @@ import { Toast, ToastContainer } from "react-bootstrap";
 import Nav from "./Nav";
 import Mainpage from "./Mainpage";
 import LoginForm from "./LoginForm";
+import { AuthProvider } from "@galvanize-inc/jwtdown-for-react";
 
 //   const [launchInfo, setLaunchInfo] = useState([]);
 //   const [error, setError] = useState(null);
@@ -83,31 +84,32 @@ function App(props) {
 
   return (
     <BrowserRouter>
-      <Nav />
-      <main>
-        <div className="container-fluid">
-          <Routes>
-            <Route path="/" element={<Mainpage />} />
-            <Route
-              path="/login"
-              element={
-                <LoginForm
-                  toast={toast}
-                  showToast={showToast}
-                  setShowToast={setShowToast}
-                  toastMessage={toastMessage}
-                  setToastMessage={setToastMessage}
-                  toastVariant={toastVariant}
-                  setToastVariant={setToastVariant}
-                />
-              }
-            />
-            <Route path="/play" element={<Play />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/leaderboard" element={<LeaderBoard />} />
-          </Routes>
-        </div>
-      </main>
+      <AuthProvider>
+        <Nav />
+        <main>
+          <div className="container-fluid">
+            <Routes>
+              <Route path="/" element={<Mainpage />} />
+              <Route
+                path="/login"
+                element={
+                  <LoginForm
+                    toast={toast}
+                    showToast={showToast}
+                    setShowToast={setShowToast}
+                    toastMessage={toastMessage}
+                    setToastMessage={setToastMessage}
+                    toastVariant={toastVariant}
+                    setToastVariant={setToastVariant}
+                  />
+                }
+              />
+              <Route path="/play" element={<Play />} />
+              <Route path="/about" element={<About />} />
+            </Routes>
+          </div>
+        </main>
+      </AuthProvider>
     </BrowserRouter>
   );
 }
