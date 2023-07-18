@@ -9,34 +9,11 @@ import linkedInImage from "./images/linkedin-image.png";
 
 function About() {
   return (
-    <div
-      className="outer-container"
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-        flexDirection: "column",
-      }}
-    >
-      <img
-        style={{ marginTop: 75 }}
-        src={logo}
-        height="100px"
-        width="100px"
-        alt="some_image"
-      />
-      <h1 style={{ marginBottom: "30px", marginTop: "30px" }}>About us</h1>
-      <div
-        className="info-container"
-        style={{
-          border: "1px solid black",
-          padding: "20px",
-          maxWidth: "600px",
-          textAlign: "center",
-        }}
-      >
-        <h2 style={{ marginTop: "30px" }}>Info</h2>
+    <div className="outer-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
+      <img style={{ marginTop: 30}} src={logo} height="100px" width="100px" alt="some_image" />
+      <h1 style={{ marginBottom: "30px", marginTop: "30px"}}>About us</h1>
+      <div className="info-container" style={{ border: '1px solid black', maxWidth: '750px', textAlign: 'center', padding: 30}}>
+        <h2>Info</h2>
         <p>
           Attack on Python is a single-player RPG about a young hero, looking to
           fight back against the oppressive Pythons. The hero must learn to
@@ -47,69 +24,16 @@ function About() {
           Island!
         </p>
       </div>
-      <h2 style={{ marginTop: "70px" }}> Our Team</h2>
-      <div
-        className="devs-container"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
-      >
-        <div
-          className="dev-container"
-          style={{
-            display: "flex",
-            margin: "20px",
-            flexDirection: "column",
-            alignItems: "center",
-            textAlign: "center",
-          }}
-        >
-          <img
-            src={russImage}
-            alt="Russ_image"
-            height="100px"
-            width="100px"
-            style={{ marginBottom: "10px" }}
-          />
-          <h5 style={{ margin: "0" }}>Russ</h5>
-          <p style={{ margin: "0" }}>Software Engineer</p>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              marginTop: "10px",
-            }}
-          >
-            <a
-              href="https://gitlab.com/russcanhelp"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ marginRight: "5px" }}
-            >
-              <img
-                src={gitLabImage}
-                height="50px"
-                width="50px"
-                alt="Russ_image"
-              />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/russell-cruz/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ marginLeft: "5px" }}
-            >
-              <img
-                src={linkedInImage}
-                alt="linked_in_image"
-                height="50px"
-                width="50px"
-              />
-            </a>
-          </div>
+      <h2 style={{ marginTop: "50px"}}> Our Team</h2>
+      <div className="devs-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: "30px",}}>
+        <div className="dev-container" style={{ display: 'flex', margin: '20px', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+            <img src={russImage} alt="Russ_image" height="100px" width="100px" style={{ marginBottom: '10px' }} />
+            <h5 style={{ margin: '0' }}>Russ</h5>
+            <p style={{ margin: '0' }}>Software Engineer</p>
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
+                <a href="https://gitlab.com/russcanhelp" target="_blank" rel="noopener noreferrer" style={{ marginRight: '5px' }}><img src={gitLabImage} height="50px" width="50px" alt="Russ_image"/></a>
+                <a href="https://www.linkedin.com/in/russell-cruz/" target="_blank" rel="noopener noreferrer" style={{ marginLeft: '5px' }}><img src={linkedInImage} alt="linked_in_image" height="50px" width="50px" /></a>
+            </div>
         </div>
         <div
           className="dev-container"

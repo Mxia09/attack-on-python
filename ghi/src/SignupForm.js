@@ -85,11 +85,11 @@ export default function SignupForm() {
 
   return (
     <div className="row">
-      <div className="offset-3 col-6">
+      <div className="offset-3 col-6" style={{padding: 50}}>
         <div className="shadow p-4 mt-4">
           <h1>Signup</h1>
           <form id="signup-form" onSubmit={handleSubmit}>
-            <div className="form-floating mb-3">
+            <div className="form-floating mb-3 text-secondary">
               <input
                 onChange={handleName}
                 value={name}
@@ -103,7 +103,7 @@ export default function SignupForm() {
               <label htmlFor="name">Name</label>
             </div>
 
-            <div className="form-floating mb-3">
+            <div className="form-floating mb-3 text-secondary">
               <input
                 onChange={handleEmail}
                 value={email}
@@ -117,7 +117,7 @@ export default function SignupForm() {
               <label htmlFor="email">Email</label>
             </div>
 
-            <div className="form-floating mb-3">
+            <div className="form-floating mb-3 text-secondary">
               <input
                 onChange={handlePassword}
                 value={password}
@@ -131,7 +131,7 @@ export default function SignupForm() {
               <label htmlFor="password">Password</label>
             </div>
 
-            <div className="form-floating mb-3">
+            <div className="form-floating mb-3 text-secondary">
               <input
                 onChange={handleConfirmPassword}
                 value={confirmPassword}
@@ -145,7 +145,7 @@ export default function SignupForm() {
               <label htmlFor="confirmPassword">Confirm Password</label>
             </div>
 
-            <div className="form-floating mb-3">
+            <div className="form-floating mb-3 text-secondary">
               <input
                 onChange={handleSecurityQuestion}
                 value={securityQuestion}
@@ -159,7 +159,7 @@ export default function SignupForm() {
               <label htmlFor="securityQuestion">Security Question</label>
             </div>
 
-            <div className="form-floating mb-3">
+            <div className="form-floating mb-3 text-secondary">
               <input
                 onChange={handleAnswer}
                 value={answer}
