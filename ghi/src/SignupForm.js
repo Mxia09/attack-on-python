@@ -210,12 +210,6 @@ export default function SignupForm() {
 
   return (
     <div className="row">
-<<<<<<< HEAD
-
-=======
-      <div className="offset-3 col-6" style={{padding: 50}}>
-        <div className="shadow p-4 mt-4">
->>>>>>> main
           <h1>Signup</h1>
           <form id="signup-form" onSubmit={handleSubmit}>
             <div className="form-floating mb-3 text-secondary">

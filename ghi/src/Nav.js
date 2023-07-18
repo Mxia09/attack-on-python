@@ -24,52 +24,6 @@ function Nav(props) {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
 
-<<<<<<< HEAD
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/">
-                  Home
-                </NavLink>
-              </li>
-              <li>
-                <hr className="dropdown-divider" />
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/play/">
-                  Play
-                </NavLink>
-              </li>
-              <li>
-                <hr className="dropdown-divider" />
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/login/">
-                  Login
-                </NavLink>
-              </li>
-              <li>
-                <hr className="dropdown-divider" />
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/signup/">
-                  Signup
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/leaderboard/">
-                  LeaderBoard
-                </NavLink>
-              </li>
-              <li>
-                <hr className="dropdown-divider" />
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/about/">
-                  About Us
-                </NavLink>
-              </li>
-=======
 {/* Logged Out */}
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li className="nav-item"><NavLink className="nav-link" to="/">Home</NavLink></li>
@@ -86,7 +40,6 @@ function Nav(props) {
                   <span className="slider round"></span>
                   </label>
                 </li>
->>>>>>> main
             </ul>
 
 {/* Logged In */}

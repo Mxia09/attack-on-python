@@ -6,9 +6,9 @@ import { Toast, ToastContainer } from "react-bootstrap";
 import Nav from "./Nav";
 import Mainpage from "./Mainpage";
 import LoginForm from "./LoginForm";
-import SignupForm from "./SignupForm";
 import { AuthProvider } from "@galvanize-inc/jwtdown-for-react";
 import SignupForm from "./SignupForm";
+import LeaderBoard from "./LeaderBoard";
 
 //   const [launchInfo, setLaunchInfo] = useState([]);
 //   const [error, setError] = useState(null);
@@ -16,11 +16,11 @@ import SignupForm from "./SignupForm";
 import Play from "./Play";
 import About from "./About";
 import ForgotPasswordForm from "./ForgotPassword";
-import Footer from  "./Footer";
-import './darkMode.css';
+import Footer from "./Footer";
+import "./darkMode.css";
 
 function App() {
-  const [theme, setTheme] = useState('light')
+  const [theme, setTheme] = useState("light");
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
   const [toastVariant, setToastVariant] = useState("");
@@ -93,70 +93,42 @@ function App() {
   // }, []);
 
   return (
-  <div className={`App ${theme}`}>
-    <BrowserRouter>
-<<<<<<< HEAD
-      <AuthProvider>
-        <Nav />
-        <main>
-          <div className="container-fluid">
-            <Routes>
-              <Route path="/" element={<Mainpage />} />
-              <Route
-                path="/login"
-                element={
-                  <LoginForm
-                    toast={toast}
-                    showToast={showToast}
-                    setShowToast={setShowToast}
-                    toastMessage={toastMessage}
-                    setToastMessage={setToastMessage}
-                    toastVariant={toastVariant}
-                    setToastVariant={setToastVariant}
-                  />
-                }
-              />
-              <Route path="/play" element={<Play />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/signup" element={<SignupForm />} />
-              <Route path="/leaderboard" element={<LeaderBoard />} />
-            </Routes>
-          </div>
-        </main>
-=======
-    <AuthProvider>
-      <Nav theme={theme} setTheme={setTheme} />
-      <main>
-
-
-        <div className="container-fluid">
-          <Routes>
-            <Route path="/" element={<Mainpage />} />
-            <Route
-              path="/login"
-              element={
-                <LoginForm
-                  toast={toast}
-                  showToast={showToast}
-                  setShowToast={setShowToast}
-                  toastMessage={toastMessage}
-                  setToastMessage={setToastMessage}
-                  toastVariant={toastVariant}
-                  setToastVariant={setToastVariant}
+    <div className={`App ${theme}`}>
+      <BrowserRouter>
+        <AuthProvider>
+          <Nav />
+          <main>
+            <div className="container-fluid">
+              <Routes>
+                <Route path="/" element={<Mainpage />} />
+                <Route
+                  path="/login"
+                  element={
+                    <LoginForm
+                      toast={toast}
+                      showToast={showToast}
+                      setShowToast={setShowToast}
+                      toastMessage={toastMessage}
+                      setToastMessage={setToastMessage}
+                      toastVariant={toastVariant}
+                      setToastVariant={setToastVariant}
+                    />
+                  }
                 />
-              }
-            />
-            <Route path="/play" element={<Play />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/signup" element={<SignupForm />} />
-            <Route path="/forgot-password" element={<ForgotPasswordForm />} />
-          </Routes>
-        </div>
-      </main>
-      <Footer />
->>>>>>> main
-      </AuthProvider>
-    </BrowserRouter>
+                <Route path="/play" element={<Play />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/signup" element={<SignupForm />} />
+                <Route path="/leaderboard" element={<LeaderBoard />} />
+                <Route
+                  path="/forgotpassword"
+                  element={<ForgotPasswordForm />}
+                />
+              </Routes>
+            </div>
+          </main>
+          <Footer />
+        </AuthProvider>
+      </BrowserRouter>
     </div>
   );
 }
