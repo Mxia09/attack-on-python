@@ -35,3 +35,5 @@ class UserAuthenticator(Authenticator):
 authenticator = UserAuthenticator(
     os.environ["SIGNING_KEY"],
 )
+
+authenticator = MyAuthenticator(os.environ["SIGNING_KEY"])

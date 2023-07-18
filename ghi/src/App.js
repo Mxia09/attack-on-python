@@ -8,19 +8,23 @@ import Mainpage from "./Mainpage";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import { AuthProvider } from "@galvanize-inc/jwtdown-for-react";
+import SignupForm from "./SignupForm";
 
 //   const [launchInfo, setLaunchInfo] = useState([]);
 //   const [error, setError] = useState(null);
 
 import Play from "./Play";
-import LeaderBoard from "./LeaderBoard";
 import About from "./About";
 import ForgotPasswordForm from "./ForgotPassword";
+import Footer from  "./Footer";
+import './darkMode.css';
 
-function App(props) {
+function App() {
+  const [theme, setTheme] = useState('light')
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
   const [toastVariant, setToastVariant] = useState("");
+
   const toast = (
     <>
       <div
@@ -61,8 +65,13 @@ function App(props) {
       </div>
     </>
   );
-  const [launchInfo, setLaunchInfo] = useState([]);
-  const [error, setError] = useState(null);
+
+  // useEffect(() => {
+  //   document.body.className = theme;
+  // }, [theme]);
+
+  //   const [launchInfo, setLaunchInfo] = useState([]);
+  //   const [error, setError] = useState(null);
 
   // useEffect(() => {
   //   async function getData() {
@@ -84,7 +93,9 @@ function App(props) {
   // }, []);
 
   return (
+  <div className={`App ${theme}`}>
     <BrowserRouter>
+<<<<<<< HEAD
       <AuthProvider>
         <Nav />
         <main>
@@ -112,8 +123,41 @@ function App(props) {
             </Routes>
           </div>
         </main>
+=======
+    <AuthProvider>
+      <Nav theme={theme} setTheme={setTheme} />
+      <main>
+
+
+        <div className="container-fluid">
+          <Routes>
+            <Route path="/" element={<Mainpage />} />
+            <Route
+              path="/login"
+              element={
+                <LoginForm
+                  toast={toast}
+                  showToast={showToast}
+                  setShowToast={setShowToast}
+                  toastMessage={toastMessage}
+                  setToastMessage={setToastMessage}
+                  toastVariant={toastVariant}
+                  setToastVariant={setToastVariant}
+                />
+              }
+            />
+            <Route path="/play" element={<Play />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/signup" element={<SignupForm />} />
+            <Route path="/forgot-password" element={<ForgotPasswordForm />} />
+          </Routes>
+        </div>
+      </main>
+      <Footer />
+>>>>>>> main
       </AuthProvider>
     </BrowserRouter>
+    </div>
   );
 }
 

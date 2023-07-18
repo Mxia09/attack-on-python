@@ -6,6 +6,8 @@ from queries.pool import pool
 class DuplicateUserError(ValueError):
     message: str
 
+class DuplicateUserError(ValueError):
+    pass
 
 class UserIn(BaseModel):
     first_name: str
@@ -39,6 +41,8 @@ class UserOut(BaseModel):
     security_question: str
     security_answer: str
 
+class UserWithPassword(UserOut):
+    hashed_password: str
 
 class UserOutWithPassword(UserOut):
     hashed_password: str
