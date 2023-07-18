@@ -41,12 +41,12 @@ function ForgotPasswordForm(props) {
     return (
     <div>
     <div className="row">
-        <div className="offset-3 col-6">
+        <div className="offset-3 col-6" style={{padding:75}}>
         <div className="shadow p-4 mt-4">
             <h1>Password Recovery</h1>
             <form onSubmit={handleSubmit} id="login-form">
 
-            <div className="form-floating mb-3">
+            <div className="form-floating mb-3 text-secondary">
                 <input onChange={handleEmail} value={email} placeholder="Email" required type="string" name="email" id="email" className="form-control"/>
                 <label htmlFor="email">Enter your Email</label>
             </div>
