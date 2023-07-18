@@ -3,15 +3,15 @@ import React, { useState, useEffect } from "react";
 export default function LeaderBoard() {
   const [scores, setScores] = useState([]);
 
-  async function LoadScores() {
-    const response = `${process.env.REACT_APP_AOP_USER_SERVICE_API_HOST}/api/scores`;
-    if (response.ok) {
-      const data = await response.json();
-      setScores(data.scores);
-    }
-  }
-
   useEffect(() => {
+    async function LoadScores() {
+      const scoreURL = `${process.env.REACT_APP_AOP_USER_SERVICE_API_HOST}/scores`;
+      const response = await fetch(scoreURL);
+      if (response.ok) {
+        const data = await response.json();
+        setScores(data.scores);
+      }
+    }
     LoadScores();
   }, []);
 
