@@ -22,8 +22,16 @@ steps = [
         """
         CREATE TABLE scores (
             id SERIAL PRIMARY KEY NOT NULL,
-            username VARCHAR(100) NOT NULL UNIQUE,
-            score INTEGER NOT NULL
+            player_1 INTEGER NOT NULL,
+            player_2 INTEGER NOT NULL,
+            player_3 INTEGER NOT NULL,
+            player_4 INTEGER NOT NULL,
+            player_5 INTEGER NOT NULL,
+            player_6 INTEGER NOT NULL,
+            player_7 INTEGER NOT NULL,
+            player_8 INTEGER NOT NULL,
+            player_9 INTEGER NOT NULL,
+            player_10 INTEGER NOT NULL
         );
         """,
 
