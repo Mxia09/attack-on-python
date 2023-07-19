@@ -15,15 +15,14 @@ import SignupForm from "./SignupForm";
 import Play from "./Play";
 import About from "./About";
 import ForgotPasswordForm from "./ForgotPassword";
-import Footer from  "./Footer";
-import './darkMode.css';
+import Footer from "./Footer";
+import "./darkMode.css";
 
 function App() {
-  const [theme, setTheme] = useState('light')
+  const [theme, setTheme] = useState("light");
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
   const [toastVariant, setToastVariant] = useState("");
-
   const toast = (
     <>
       <div
@@ -64,11 +63,6 @@ function App() {
       </div>
     </>
   );
-
-  // useEffect(() => {
-  //   document.body.className = theme;
-  // }, [theme]);
-
   //   const [launchInfo, setLaunchInfo] = useState([]);
   //   const [error, setError] = useState(null);
 
@@ -92,40 +86,41 @@ function App() {
   //   }, []);
 
   return (
-  <div className={`App ${theme}`}>
-    <BrowserRouter>
-    <AuthProvider>
-      <Nav theme={theme} setTheme={setTheme} />
-      <main>
-
-
-        <div className="container-fluid">
-          <Routes>
-            <Route path="/" element={<Mainpage />} />
-            <Route
-              path="/login"
-              element={
-                <LoginForm
-                  toast={toast}
-                  showToast={showToast}
-                  setShowToast={setShowToast}
-                  toastMessage={toastMessage}
-                  setToastMessage={setToastMessage}
-                  toastVariant={toastVariant}
-                  setToastVariant={setToastVariant}
+    <div className={`App ${theme}`}>
+      <BrowserRouter>
+        <AuthProvider>
+          <Nav theme={theme} setTheme={setTheme} />
+          <main>
+            <div className="container-fluid">
+              <Routes>
+                <Route path="/" element={<Mainpage />} />
+                <Route
+                  path="/login"
+                  element={
+                    <LoginForm
+                      toast={toast}
+                      showToast={showToast}
+                      setShowToast={setShowToast}
+                      toastMessage={toastMessage}
+                      setToastMessage={setToastMessage}
+                      toastVariant={toastVariant}
+                      setToastVariant={setToastVariant}
+                    />
+                  }
                 />
-              }
-            />
-            <Route path="/play" element={<Play />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/signup" element={<SignupForm />} />
-            <Route path="/forgot-password" element={<ForgotPasswordForm />} />
-          </Routes>
-        </div>
-      </main>
-      <Footer />
-      </AuthProvider>
-    </BrowserRouter>
+                <Route path="/play" element={<Play />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/signup" element={<SignupForm />} />
+                <Route
+                  path="/forgot-password"
+                  element={<ForgotPasswordForm />}
+                />
+              </Routes>
+            </div>
+          </main>
+          <Footer />
+        </AuthProvider>
+      </BrowserRouter>
     </div>
   );
 }
