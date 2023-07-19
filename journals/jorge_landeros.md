@@ -23,14 +23,11 @@
 
 - Thursday:
 
-  1. I worked on the project for a short time as I was more focused on Data Structures
+  1. I worked on the project for a short time as I was more focused on Data Structures for the day.
 
 - Friday:
   1. Issue Stories:
      We created user stories to start us off in our project to start coding.
-  2. Docker containers
-  3. wireframe
-  4. Logo
 
 # **Week 14**
 
@@ -107,19 +104,41 @@
   3. wireframe
   4. Logo
 
-  This is security db table that I thought would be Stretch Goals
-  [
-  # "Up" SQL statement
-  """
-  CREATE TYPE security AS ENUM ('Mothers Maiden Name', 'Favorite Color', 'Pets First Name');
-  CREATE TABLE securities (
-  id SERIAL PRIMARY KEY NOT NULL,
-  question security NOT NULL,
-  answer VARCHAR(50) NOT NULL
-  );
-  """,
-  # "Down" SQL statement
-  """
-  DROP TABLE securities;
-  """
-  ],
+# **Week 16**
+
+- Monday:
+
+  1. Learning and Implementing Redux:
+     After seeing that the information inside out application is going to be used again and again we decided to implent redux to further save us.
+  2. Docker containers
+  3. wireframe
+  4. Logo
+
+- Tuesday:
+
+  1. Making A front end page for user information:
+     As we already have a sign in and sign up I wanted to implement a page for the user to be able to see their information. It is going to show the users stats such as their email and username also would be able to see their score on the game.
+  2. Going to rewatch the leture on unit tests to implement one for tommorow.
+
+- Wednesday:
+
+  1. Starting CD/CI ideation but not deploying
+     In order to be aware of any issues that can come across so that we arent overwhelmed in the last week of project time.
+  2. We also came into a issue when someone merged to main the backend file got switched
+     Which was kinda weird since when they pulled it didnt give no conflicts so we are going to fix that issue.
+  3. wireframe
+  4. Logo
+
+- Thursday:
+
+  1. MVP
+  2. Docker containers
+  3. wireframe
+  4. Logo
+
+- Friday:
+
+  1. MVP
+  2. Docker containers
+  3. wireframe
+  4. Logo
