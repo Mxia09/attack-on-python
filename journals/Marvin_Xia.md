@@ -35,14 +35,3 @@
 3.  show the individual score of a player(assuming it exists)
 4.  be updated
 5.  get deleted (this may be removed later on since backend is meant for a leaderboard for record keeping)
-
-# **July 12, 2023**
-
-- merged backend function of leader board into main and received some feed back on router; Which was quuickly fixed and updated.
-- reviewed and brainstormed with team on some added functionality that can be done on the backend
-
-# **July 13, 2023**
-
-- Edited score backend database; instead of score database field showing ten different players it now shows the player username and score for each individual player.
-- Created frontend page for player leaderboard to show top ten scores.
-- Frontend page however would not

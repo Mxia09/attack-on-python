@@ -8,7 +8,6 @@ import Mainpage from "./Mainpage";
 import LoginForm from "./LoginForm";
 import { AuthProvider } from "@galvanize-inc/jwtdown-for-react";
 import SignupForm from "./SignupForm";
-import LeaderBoard from "./LeaderBoard";
 
 //   const [launchInfo, setLaunchInfo] = useState([]);
 //   const [error, setError] = useState(null);
@@ -16,11 +15,11 @@ import LeaderBoard from "./LeaderBoard";
 import Play from "./Play";
 import About from "./About";
 import ForgotPasswordForm from "./ForgotPassword";
-import Footer from "./Footer";
-import "./darkMode.css";
+import Footer from  "./Footer";
+import './darkMode.css';
 
 function App() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState('light')
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
   const [toastVariant, setToastVariant] = useState("");
@@ -73,62 +72,60 @@ function App() {
   //   const [launchInfo, setLaunchInfo] = useState([]);
   //   const [error, setError] = useState(null);
 
-  // useEffect(() => {
-  //   async function getData() {
-  //     let url = `${process.env.REACT_APP_API_HOST}/api/launch-details`;
-  //     console.log("fastapi url: ", url);
-  //     let response = await fetch(url);
-  //     console.log("------- hello? -------");
-  //     let data = await response.json();
+  //   useEffect(() => {
+  //     async function getData() {
+  //       let url = `${process.env.REACT_APP_API_HOST}/api/launch-details`;
+  //       console.log("fastapi url: ", url);
+  //       let response = await fetch(url);
+  //       console.log("------- hello? -------");
+  //       let data = await response.json();
 
-  //     if (response.ok) {
-  //       console.log("got launch data!");
-  //       setLaunchInfo(data.launch_details);
-  //     } else {
-  //       console.log("drat! something happened");
-  //       setError(data.message);
+  //       if (response.ok) {
+  //         console.log("got launch data!");
+  //         setLaunchInfo(data.launch_details);
+  //       } else {
+  //         console.log("drat! something happened");
+  //         setError(data.message);
+  //       }
   //     }
-  //   }
-  //   getData();
-  // }, []);
+  //     getData();
+  //   }, []);
 
   return (
-    <div className={`App ${theme}`}>
-      <BrowserRouter>
-        <AuthProvider>
-          <Nav />
-          <main>
-            <div className="container-fluid">
-              <Routes>
-                <Route path="/" element={<Mainpage />} />
-                <Route
-                  path="/login"
-                  element={
-                    <LoginForm
-                      toast={toast}
-                      showToast={showToast}
-                      setShowToast={setShowToast}
-                      toastMessage={toastMessage}
-                      setToastMessage={setToastMessage}
-                      toastVariant={toastVariant}
-                      setToastVariant={setToastVariant}
-                    />
-                  }
+  <div className={`App ${theme}`}>
+    <BrowserRouter>
+    <AuthProvider>
+      <Nav theme={theme} setTheme={setTheme} />
+      <main>
+
+
+        <div className="container-fluid">
+          <Routes>
+            <Route path="/" element={<Mainpage />} />
+            <Route
+              path="/login"
+              element={
+                <LoginForm
+                  toast={toast}
+                  showToast={showToast}
+                  setShowToast={setShowToast}
+                  toastMessage={toastMessage}
+                  setToastMessage={setToastMessage}
+                  toastVariant={toastVariant}
+                  setToastVariant={setToastVariant}
                 />
-                <Route path="/play" element={<Play />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/signup" element={<SignupForm />} />
-                <Route path="/leaderboard" element={<LeaderBoard />} />
-                <Route
-                  path="/forgotpassword"
-                  element={<ForgotPasswordForm />}
-                />
-              </Routes>
-            </div>
-          </main>
-          <Footer />
-        </AuthProvider>
-      </BrowserRouter>
+              }
+            />
+            <Route path="/play" element={<Play />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/signup" element={<SignupForm />} />
+            <Route path="/forgot-password" element={<ForgotPasswordForm />} />
+          </Routes>
+        </div>
+      </main>
+      <Footer />
+      </AuthProvider>
+    </BrowserRouter>
     </div>
   );
 }
