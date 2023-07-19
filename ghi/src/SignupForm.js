@@ -1,4 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
+import { useNavigate } from "react-router-dom";
+
+function BootstrapInput(props) {
+  const { id, placeholder, labelText, value, onChange, type } = props;
+
+  return (
+    <div className="offset-3 col-6">
+      {/* <div className="shadow p-4 mt-4"> */}
+      <label htmlFor={id} className="form-label">
+        {labelText}
+      </label>
+      <input
+        value={value}
+        onChange={onChange}
+        required
+        type={type}
+        className="form-control"
+        id={id}
+        placeholder={placeholder}
+      />
+      {/* </div> */}
+    </div>
+  );
+}
 
 export default function SignupForm() {
   const [name, setName] = useState("");
@@ -7,6 +32,106 @@ export default function SignupForm() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [securityQuestion, setSecurityQuestion] = useState("");
   const [answer, setAnswer] = useState("");
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const data = {};
+  //   data.name = name;
+  //   data.email = setEmail;
+  //   data.password = password;
+  //   data.confirmPassword = confirmPassword;
+  //   data.securityQuestion = securityQuestion;
+  //   data.answer = answer;
+  //   const url = `${process.env.REACT_APP_AOP_USER_SERVICE_API_HOST}/api/users`;
+  //   const fetchConfig = {
+  //     method: "POST",
+  //     body: JSON.stringify(data),
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   };
+  //   const response = await fetch(url, fetchConfig);
+  //   if (response.ok) {
+  //     await response.json();
+  //     try {
+  //       await login(username, password);
+  //       setName("");
+  //       setEmail("");
+  //       setPassword("");
+  //       setConfirmPassword("");
+  //       setSecurityQuestion("");
+  //       setAnswer("");
+  //       navigate("/play");
+  //     } catch (error) {
+  //       console.error("Error logging in:", error);
+  //     }
+  //   } else {
+  //     console.error("Unable to create new account; Please try again");
+  //   }
+  // };
+
+  return (
+    <>
+      <h1>Player Signup</h1>
+      <form>
+        <BootstrapInput
+          id="name"
+          placeholder="Name"
+          labelText="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          type="text"
+        />
+        <BootstrapInput
+          id="email"
+          placeholder="example@example.com"
+          labelText="Your email address"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          type="email"
+        />
+        <BootstrapInput
+          id="password"
+          placeholder="Password"
+          labelText="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          type="password"
+        />
+        <BootstrapInput
+          id="confirmPassword"
+          placeholder="Confirm your password"
+          labelText="Confirm Password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          type="password"
+        />
+        <BootstrapInput
+          id="securityQuestion"
+          placeholder="Secuity Question"
+          labelText="Security Question"
+          value={securityQuestion}
+          onChange={(e) => setSecurityQuestion(e.target.value)}
+          type="password"
+        />
+        <BootstrapInput
+          id="answer"
+          placeholder="Answer"
+          labelText="Answer"
+          value={answer}
+          onChange={(e) => setAnswer(e.target.value)}
+          type="text"
+        />
+        <button type="submit" className="btn btn-primary">
+          Signup
+        </button>
+      </form>
+    </>
+  );
+}
+
+{
+  /* export default function SignupForm() {
   const [created, setCreated] = useState(false);
   const [notCreated, setNotCreated] = useState(false);
 
@@ -42,7 +167,7 @@ export default function SignupForm() {
     setAnswer(value);
   };
 
-  const signUpURL = "http://localhost:3000/api/signup/";
+  const signUpURL = `${process.env.REACT_APP_AOP_USER_SERVICE_API_HOST}/api/users`;
   const fetchConfig = () => ({
     method: "post",
     body: JSON.stringify({
@@ -85,8 +210,6 @@ export default function SignupForm() {
 
   return (
     <div className="row">
-      <div className="offset-3 col-6" style={{padding: 50}}>
-        <div className="shadow p-4 mt-4">
           <h1>Signup</h1>
           <form id="signup-form" onSubmit={handleSubmit}>
             <div className="form-floating mb-3 text-secondary">
@@ -100,7 +223,7 @@ export default function SignupForm() {
                 id="name"
                 className="form-control"
               />
-              <label htmlFor="name">Name</label>
+              
             </div>
 
             <div className="form-floating mb-3 text-secondary">
@@ -173,9 +296,7 @@ export default function SignupForm() {
               <label htmlFor="answer">Answer</label>
             </div>
 
-            <button type="submit" className="btn btn-primary">
-              Signup
-            </button>
+
             <div className={messageClasses} id="success-message">
               User signed up!
             </div>
@@ -187,4 +308,5 @@ export default function SignupForm() {
       </div>
     </div>
   );
+} */
 }
