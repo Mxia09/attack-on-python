@@ -1,4 +1,4 @@
-import logo from "./attack-on-python-logo.png";
+import logo from "./images/attack-on-python-logo.png";
 
 const playGame = () => {
   window.location.href = "play/";

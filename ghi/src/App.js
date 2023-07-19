@@ -16,7 +16,7 @@ import Play from "./Play";
 import About from "./About";
 import ForgotPasswordForm from "./ForgotPassword";
 import Footer from "./Footer";
-import "./darkMode.css";
+// import "./darkMode.css";
 
 function App() {
   const [theme, setTheme] = useState("light");

@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
-import logo from "./attack-on-python-logo.png";
+import logo from "./images/attack-on-python-logo.png";
 
+const Nav = () => {
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -80,6 +81,6 @@ import logo from "./attack-on-python-logo.png";
       </nav>
     </header>
   );
-}
+          }
 
 export default Nav;
