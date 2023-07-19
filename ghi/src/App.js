@@ -11,8 +11,7 @@ import SignupForm from "./SignupForm";
 
 //   const [launchInfo, setLaunchInfo] = useState([]);
 //   const [error, setError] = useState(null);
-
-import Play from "./Play";
+import { Play } from "./components";
 import About from "./About";
 import ForgotPasswordForm from "./ForgotPassword";
 import Footer from "./Footer";
@@ -126,3 +125,4 @@ function App() {
 }
 
 export default App;
+

@@ -9,7 +9,6 @@ services:
       DATABASE_URL: postgresql://example_user:secret@db/example
       WAIT_HOSTS: db:5432
       PORT: 8000
-      SIGNING_KEY: YERRR
     build:
       context: api
       dockerfile: Dockerfile.dev
