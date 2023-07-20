@@ -39,7 +39,7 @@ function Footer() {
 
           <ul className="list-unstyled text-light">
             <li>
-              Help@AttackOnPython.com
+              <a href="mailto: help@AttackOnPython.com">help@attackonpython.com</a>
             </li>
             <li>
               (123) 456-7890
