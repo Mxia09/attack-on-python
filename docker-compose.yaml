@@ -4,6 +4,8 @@ volumes:
 services:
   fastapi:
     environment:
+      SIGNING_KEY: 1dba62137447861b2b2eb81e5886fa98d021007b
+      SIGNING_KEY: 87fe4a3fcfb60092dbaeb854a196bc3d9b190aed7930c734749e85245de698420c25f8e6899c421b4494e99459e01058de5daa9d49584cd62ec975da9aea33da
       CORS_HOST: http://localhost:3000
       WATCHPACK_POLLING: "true"
       DATABASE_URL: postgresql://example_user:secret@db/example
@@ -30,7 +32,7 @@ services:
       NODE_ENV: development
       HOST: "0.0.0.0"
       PUBLIC_URL: http://localhost:3000
-      REACT_APP_API_HOST: ${REACT_APP_API_HOST}
+      REACT_APP_API_HOST: http://localhost:8000
   db:
     image: postgres:14.5-bullseye
     environment:

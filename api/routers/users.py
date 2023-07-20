@@ -58,7 +58,7 @@ async def get_token(
         }
 
 
-@router.get("/users", response_model=List[UserOut])
+@router.get("/api/users", response_model=List[UserOut])
 def get_all_users(
     repo: UserRepository = Depends(),
 ):
@@ -78,7 +78,7 @@ def update_user(
     return record
 
 
-@router.delete("/users/{user_id}", response_model=bool)
+@router.delete("/api/users/{user_id}", response_model=bool)
 def delete_user(
     user_id: int,
     repo: UserRepository = Depends(),
@@ -88,7 +88,7 @@ def delete_user(
     return True
 
 
-@router.get("/users/{email}", response_model=Optional[UserOut])
+@router.get("/api/users/{email}", response_model=Optional[UserOut])
 def get_one_user(
     email: str,
     response: Response,
