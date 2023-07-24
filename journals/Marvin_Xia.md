@@ -35,3 +35,13 @@
 3.  show the individual score of a player(assuming it exists)
 4.  be updated
 5.  get deleted (this may be removed later on since backend is meant for a leaderboard for record keeping)
+
+# **July 20, 2023**
+
+- last few days have been hazy in terms of work done. A recent merge push and pull has cased some nasty changes in the working app. The main take away from this is to better communicate as a team on efficient pulls and merges as well as utilize agile flow when it comes to git pulls/merges. Due to the merge issues some prior data that had been worked have been reverted to the last working known commit. Due to this the following have been done:
+
+1. Scores.py database had to be re-edited, the prior changes made to make a more efficient database by Jorge
+2. Leaderboard front end was rebuilt by Russel
+3. Fred was able to complete the testemonial backend
+4. Max completed the game compononents needed
+5. I worked and compelted the front-end for signup and login forms as wll as a useertoken get request for the frontend for any future pages that will need the token later on to make edits suchs as a user profile page

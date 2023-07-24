@@ -22,6 +22,8 @@ function App() {
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
   const [toastVariant, setToastVariant] = useState("");
+  const domain = /https:\/\/[^/]+/;
+  const basename = process.env.PUBLIC_URL.replace(domain, "");
   const toast = (
     <>
       <div
@@ -86,8 +88,8 @@ function App() {
 
   return (
     <div className={`App ${theme}`}>
-      <BrowserRouter>
-        <AuthProvider>
+      <BrowserRouter basename={basename}>
+        <AuthProvider baseUrl={process.env.REACT_APP_API_HOST}>
           <Nav theme={theme} setTheme={setTheme} />
           <main>
             <div className="container-fluid">
@@ -125,4 +127,3 @@ function App() {
 }
 
 export default App;
-

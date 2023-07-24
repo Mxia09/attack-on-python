@@ -1,190 +1,154 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import useToken from "@galvanize-inc/jwtdown-for-react";
 
-export default function SignupForm() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+export default function SignupForm(props) {
+  const [first_name, setFirst_name] = useState("");
+  const [last_name, setLast_name] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [securityQuestion, setSecurityQuestion] = useState("");
-  const [answer, setAnswer] = useState("");
-  const [created, setCreated] = useState(false);
-  const [notCreated, setNotCreated] = useState(false);
+  const [email, setEmail] = useState("");
+  const [profile_picture, setProfile_Picture] = useState("");
+  const [security_question, setSecurity_Question] = useState("");
+  const [security_answer, setSecurity_answer] = useState("");
+  const { register, token } = useToken();
+  const navigate = useNavigate();
 
-  useEffect(() => {}, []);
-
-  const handleName = (event) => {
-    const value = event.target.value;
-    setName(value);
-  };
-
-  const handleEmail = (event) => {
-    const value = event.target.value;
-    setEmail(value);
-  };
-
-  const handlePassword = (event) => {
-    const value = event.target.value;
-    setPassword(value);
-  };
-
-  const handleConfirmPassword = (event) => {
-    const value = event.target.value;
-    setConfirmPassword(value);
-  };
-
-  const handleSecurityQuestion = (event) => {
-    const value = event.target.value;
-    setSecurityQuestion(value);
-  };
-
-  const handleAnswer = (event) => {
-    const value = event.target.value;
-    setAnswer(value);
-  };
-
-  const signUpURL = "http://localhost:3000/api/signup/";
-  const fetchConfig = () => ({
-    method: "post",
-    body: JSON.stringify({
-      name: name,
-      email: email,
+  const handlePlayerRegistration = (e) => {
+    e.preventDefault();
+    const userData = {
+      first_name: first_name,
+      last_name: last_name,
+      username: username,
       password: password,
-      confirmPassword: confirmPassword,
-      securityQuestion: securityQuestion,
-      answer: answer,
-    }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const response = await fetch(signUpURL, fetchConfig());
-
-    if (response.ok) {
-      setName("");
-      setEmail("");
-      setPassword("");
-      setConfirmPassword("");
-      setSecurityQuestion("");
-      setAnswer("");
-      setCreated(true);
-    } else if (response.status !== 200) {
-      setNotCreated(true);
-    }
+      email: email,
+      profile_picture: profile_picture,
+      security_question: security_question,
+      security_answer: security_answer,
+    };
+    register(userData, `${process.env.REACT_APP_API_HOST}/api/users`);
+    e.target.reset();
+    navigate("/play");
   };
-
-  let messageClasses = "alert alert-success d-none mb-0";
-  let messageFailedClasses = "alert alert-danger d-none mb-0";
-  if (created) {
-    messageClasses = "alert alert-success mb-0";
-  } else if (notCreated) {
-    messageFailedClasses = "alert alert-danger mb-0";
-  }
 
   return (
-    <div className="row">
-      <div className="offset-3 col-6" style={{padding: 50}}>
-        <div className="shadow p-4 mt-4">
-          <h1>Signup</h1>
-          <form id="signup-form" onSubmit={handleSubmit}>
-            <div className="form-floating mb-3 text-secondary">
-              <input
-                onChange={handleName}
-                value={name}
-                placeholder="Name"
-                required
-                type="text"
-                name="name"
-                id="name"
-                className="form-control"
-              />
-              <label htmlFor="name">Name</label>
-            </div>
+    <div>
+      <h1>Player Signup</h1>
+      <form onSubmit={handlePlayerRegistration}>
+        <div className="shadow p-4 mt-4 offset-3 col-6"></div>
+        <label htmlFor="first_name" className="form-label">
+          First Name
+        </label>
+        <input
+          value={first_name}
+          onChange={(e) => setFirst_name(e.target.value)}
+          required
+          type="text"
+          className="form-control"
+          id="first_name"
+          placeholder="First Name"
+        />
 
-            <div className="form-floating mb-3 text-secondary">
-              <input
-                onChange={handleEmail}
-                value={email}
-                placeholder="Email"
-                required
-                type="email"
-                name="email"
-                id="email"
-                className="form-control"
-              />
-              <label htmlFor="email">Email</label>
-            </div>
+        <div className="shadow p-4 mt-4"></div>
+        <label htmlFor="last_name" className="form-label">
+          Last Name
+        </label>
+        <input
+          value={last_name}
+          onChange={(e) => setLast_name(e.target.value)}
+          required
+          type="text"
+          className="form-control"
+          id="last_name"
+          placeholder="Last Name"
+        />
 
-            <div className="form-floating mb-3 text-secondary">
-              <input
-                onChange={handlePassword}
-                value={password}
-                placeholder="Password"
-                required
-                type="password"
-                name="password"
-                id="password"
-                className="form-control"
-              />
-              <label htmlFor="password">Password</label>
-            </div>
+        <div className="shadow p-4 mt-4"></div>
+        <label htmlFor="password" className="form-label">
+          Username
+        </label>
+        <input
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+          type="test"
+          className="form-control"
+          id="username"
+          placeholder="Username"
+        />
 
-            <div className="form-floating mb-3 text-secondary">
-              <input
-                onChange={handleConfirmPassword}
-                value={confirmPassword}
-                placeholder="Confirm Password"
-                required
-                type="password"
-                name="confirmPassword"
-                id="confirmPassword"
-                className="form-control"
-              />
-              <label htmlFor="confirmPassword">Confirm Password</label>
-            </div>
+        <div className="shadow p-4 mt-4"></div>
+        <label htmlFor="password" className="form-label">
+          Password
+        </label>
+        <input
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          type="password"
+          className="form-control"
+          id="password"
+          placeholder="password"
+        />
 
-            <div className="form-floating mb-3 text-secondary">
-              <input
-                onChange={handleSecurityQuestion}
-                value={securityQuestion}
-                placeholder="Security Question"
-                required
-                type="text"
-                name="securityQuestion"
-                id="securityQuestion"
-                className="form-control"
-              />
-              <label htmlFor="securityQuestion">Security Question</label>
-            </div>
+        <div className="shadow p-4 mt-4"></div>
+        <label htmlFor="email" className="form-label">
+          Email
+        </label>
+        <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          type="email"
+          className="form-control"
+          id="email"
+          placeholder="example@example.com"
+        />
 
-            <div className="form-floating mb-3 text-secondary">
-              <input
-                onChange={handleAnswer}
-                value={answer}
-                placeholder="Answer"
-                required
-                type="text"
-                name="answer"
-                id="answer"
-                className="form-control"
-              />
-              <label htmlFor="answer">Answer</label>
-            </div>
+        <div className="shadow p-4 mt-4"></div>
+        <label htmlFor="securityquestion" className="form-label">
+          Profile Pic
+        </label>
+        <input
+          value={profile_picture}
+          onChange={(e) => setProfile_Picture(e.target.value)}
+          type="url"
+          className="form-control"
+          id="profile_picture"
+          placeholder="url"
+        />
 
-            <button type="submit" className="btn btn-primary">
-              Signup
-            </button>
-            <div className={messageClasses} id="success-message">
-              User signed up!
-            </div>
-            <div className={messageFailedClasses} id="unsuccessful-message">
-              Unable to sign up new user, please try again.
-            </div>
-          </form>
-        </div>
-      </div>
+        <div className="shadow p-4 mt-4"></div>
+        <label htmlFor="securityquestion" className="form-label">
+          Security Question
+        </label>
+        <input
+          value={security_question}
+          onChange={(e) => setSecurity_Question(e.target.value)}
+          required
+          type="text"
+          className="form-control"
+          id="securityquestion"
+          placeholder="Security Question"
+        />
+
+        <div className="shadow p-4 mt-4"></div>
+        <label htmlFor="securityanswer" className="form-label">
+          Security Answer
+        </label>
+        <input
+          value={security_answer}
+          onChange={(e) => setSecurity_answer(e.target.value)}
+          required
+          type="text"
+          className="form-control"
+          id="securityanswer"
+          placeholder="Security Answer"
+        />
+        <button type="submit" className="btn btn-primary">
+          Signup
+        </button>
+      </form>
     </div>
   );
 }
