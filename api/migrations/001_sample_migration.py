@@ -2,19 +2,21 @@ steps = [
     [
         # "Up" SQL statement
         """
-        CREATE TABLE dummy (
+        CREATE TABLE users (
             id SERIAL PRIMARY KEY NOT NULL,
-            required_limited_text VARCHAR(1000) NOT NULL,
-            required_unlimited_text TEXT NOT NULL,
-            required_date_time TIMESTAMP NOT NULL,
-            automatically_set_date_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-            required_integer INTEGER NOT NULL,
-            required_money MONEY NOT NULL
+            first_name VARCHAR(50) NOT NULL,
+            last_name VARCHAR(50) NOT NULL,
+            username VARCHAR(100) NOT NULL UNIQUE,
+            hashed_password VARCHAR(100) NOT NULL,
+            email VARCHAR(100) NOT NULL,
+            profile_picture TEXT NOT NULL,
+            security_question TEXT NOT NULL,
+            security_answer TEXT NOT NULL
         );
         """,
         # "Down" SQL statement
         """
-        DROP TABLE dummy;
+        DROP TABLE users;
         """
     ],
     [
@@ -22,22 +24,15 @@ steps = [
         """
         CREATE TABLE scores (
             id SERIAL PRIMARY KEY NOT NULL,
-            player_1 INTEGER NOT NULL,
-            player_2 INTEGER NOT NULL,
-            player_3 INTEGER NOT NULL,
-            player_4 INTEGER NOT NULL,
-            player_5 INTEGER NOT NULL,
-            player_6 INTEGER NOT NULL,
-            player_7 INTEGER NOT NULL,
-            player_8 INTEGER NOT NULL,
-            player_9 INTEGER NOT NULL,
-            player_10 INTEGER NOT NULL
+            total_time VARCHAR(100),
+            username VARCHAR(50),
+            FOREIGN KEY (username) REFERENCES users(username)
         );
         """,
 
         # "Down" SQL statement
         """
-        DROP TABLE big_dummy;
+        DROP TABLE  scores;
         """
     ]
 ]
