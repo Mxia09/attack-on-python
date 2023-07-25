@@ -160,6 +160,7 @@ class UserRepository:
                         profile_picture = %s,
                         security_question = %s,
                         security_answer = %s
+                        WHERE id = %s;
                         """,
                         [
                             user.first_name,
@@ -169,7 +170,8 @@ class UserRepository:
                             user.email,
                             user.profile_picture,
                             user.security_question,
-                            user.security_answer
+                            user.security_answer,
+                            user_id
                         ]
                     )
                     old_data = user.dict()

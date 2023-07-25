@@ -65,7 +65,7 @@ def get_all_users(
     return repo.get_all()
 
 
-@router.put("/users/{user_id}", response_model=UserOut)
+@router.put("/api/users/{user_id}", response_model=UserOut)
 def update_user(
     user_id: int,
     user: UserUpdate,

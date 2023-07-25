@@ -142,6 +142,7 @@ class QuestionRepository:
                         answer = %s,
                         hint = %s,
                         response = %s
+                        WHERE id = %s;
                         """,
                         [
                             question.question,
@@ -151,7 +152,8 @@ class QuestionRepository:
                             question.choice_4,
                             question.answer,
                             question.hint,
-                            question.response
+                            question.response,
+                            question_id
                         ]
                     )
                     old_data = question.dict()
