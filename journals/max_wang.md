@@ -16,3 +16,4 @@ Finished testing of battle-test and the React components. Now beginning to write
 
 July 19th-July 25th, 2023:
 Finally managed to get a working rendition of battle-test into the project. Created a few custom hooks for the game dialogue, fetching the question objects from the api/questions/{question_id} endpoint, got the overall game to work. just need to spend more time polishing up and adding some Quality of Life mechanics/functions.
+Began and finished the security backend for adding security questions and answers to a database that is foreign keyed to the users. Removed the data types for security question and answer from the users database and fixed the queries accordingly.
