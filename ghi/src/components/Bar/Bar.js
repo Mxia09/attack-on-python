@@ -1,12 +1,15 @@
 import styles from './styles.module.css'
 
-export const Bar = ({ label, value, MaxValue }) => {
+export const Bar = ({ label, value, maxValue }) => {
     return (
         <div className={styles.main}>
             <div className={styles.label}>{label}</div>
 
-            <div className={styles.max}
-            style={{ width: `${(value / MaxValue) * 100}%`}}>
+            <div className={styles.max}>
+                <div
+                    className={styles.value}
+                    style={{ width: `${(value / maxValue) * 100}%` }}
+                ></div>
             </div>
         </div>
     )

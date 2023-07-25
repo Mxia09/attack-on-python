@@ -5,4 +5,3 @@ new Promise((resolve => {
     }, ms);
 }));
 
-export const attack = ({})
