@@ -11,7 +11,7 @@ from queries.questions import (
 router = APIRouter()
 
 
-@router.post("/questions", response_model=Union[QuestionOut, Error])
+@router.post("/api/questions", response_model=Union[QuestionOut, Error])
 def create_question(
     question: QuestionIn,
     response: Response,
@@ -21,14 +21,14 @@ def create_question(
     return repo.create(question)
 
 
-@router.get("/questions", response_model=Union[List[QuestionOut], Error])
+@router.get("/api/questions", response_model=Union[List[QuestionOut], Error])
 def get_all_questions(
     repo: QuestionRepository = Depends(),
 ):
     return repo.get_all()
 
 
-@router.put("/questions/{question_id}", response_model=Union[QuestionOut, Error])
+@router.put("/api/questions/{question_id}", response_model=Union[QuestionOut, Error])
 def update_questiion(
     question_id: int,
     question: QuestionIn,
@@ -37,7 +37,7 @@ def update_questiion(
     return repo.update_question(question_id, question)
 
 
-@router.delete("/questions/{question_id}", response_model=bool)
+@router.delete("/api/questions/{question_id}", response_model=bool)
 def delete_question(
     question_id: int,
     repo: QuestionRepository = Depends(),
@@ -45,7 +45,7 @@ def delete_question(
     return repo.delete_question(question_id)
 
 
-@router.get("/questions/{question_id}", response_model=Optional[QuestionOut])
+@router.get("/api/questions/{question_id}", response_model=Optional[QuestionOut])
 def get_one_question(
     question_id: int,
     response: Response,

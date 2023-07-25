@@ -1,4 +1,5 @@
 import styles from './styles.module.css';
+import { useTypedMessage } from '../../hooks/useTypedMessage';
 
 
 export const BattleAnnouncer = ({ message }) => {
@@ -7,9 +8,4 @@ export const BattleAnnouncer = ({ message }) => {
     return <div className={styles.main}>
         <div className={styles.message}> {typedMessage} </div>
     </div>
-}
-
-export const attack = ({ attacker, receiver }) => {
-    const receivedDamage =
-        attacker.attack
 }
