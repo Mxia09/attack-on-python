@@ -62,6 +62,7 @@ class UserRepository:
         except Exception as e:
             print(e)
             return {"Error": "Could not create User"}
+
     def get_user(self, username: str) -> UserOutWithPassword:
         try:
             with pool.connection() as conn:
@@ -80,10 +81,10 @@ class UserRepository:
                         WHERE username = %s
                         or email = %s
                         """,
-                    [
-                        username,
-                        username
-                    ]
+                        [
+                            username,
+                            username
+                        ]
                     )
                     user = result.fetchone()
                     if user is None:
@@ -100,6 +101,7 @@ class UserRepository:
         except Exception as e:
             print(e)
             return {"Error": "Could not get that user"}
+
     def get_all(self) -> List[UserOutWithPassword]:
         try:
             with pool.connection() as conn:
@@ -127,6 +129,7 @@ class UserRepository:
         except Exception as e:
             print(e)
             return {"Error": "Could not get all Users"}
+
     def update_user(self, user_id: int, user: UserUpdate, hashed_password: str) -> UserOutWithPassword:
         try:
             with pool.connection() as conn:
@@ -157,6 +160,7 @@ class UserRepository:
         except Exception as e:
             print(e)
             return {"Error": "Could not update that User"}
+
     def delete_user(self, user_id: int) -> bool:
         try:
             with pool.connection() as conn:
