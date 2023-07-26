@@ -21,7 +21,7 @@
 
 - Created the backend of the signup page over the break utilizing MongoDB. Did not work as much as I had hoped and spent more time reviewing old explorations to keep on track.
 
-# **July 10, 2023**
+  **July 10, 2023**
 
 - deleted signup backend; mongoDB was not needed and there was a miscommunication on my part
 - worked on scores endpoint and set up a POST but having issues with repository creation and getting the proper container to get set up after class. Will check with Jorge the following day since he was able to get his questions database set up
@@ -40,8 +40,23 @@
 
 - last few days have been hazy in terms of work done. A recent merge push and pull has cased some nasty changes in the working app. The main take away from this is to better communicate as a team on efficient pulls and merges as well as utilize agile flow when it comes to git pulls/merges. Due to the merge issues some prior data that had been worked have been reverted to the last working known commit. Due to this the following have been done:
 
-1. Scores.py database had to be re-edited, the prior changes made to make a more efficient database by Jorge
+1. Scores.py database had to be re-edited; worked on getting backend fixed with Jorge
 2. Leaderboard front end was rebuilt by Russel
 3. Fred was able to complete the testemonial backend
-4. Max completed the game compononents needed
-5. I worked and compelted the front-end for signup and login forms as wll as a useertoken get request for the frontend for any future pages that will need the token later on to make edits suchs as a user profile page
+4. Max completed the game compononents needed and ironed out more logic
+5. I worked and completed the front-end for signup and login forms
+
+# **July 21, 2023**
+
+1. Front end authorizaton fully completed, the userToken is now fully implemented into the core app. Anytime a user needs to signup or login they will be able to properly do so with a token being generated and used
+2. Created a log out function and implemented it into nav.js
+
+# **July 24, 2023**
+
+1. Today was more game components driven worked with Max on ironing out the logic and figuring how to render gaming visualization. Max coded while I took a more backseat approach as he has been the main architect in getting gaming logic figured out.
+
+# **July 24, 2023**
+
+1. worked on unit tests for scores
+2. Both Jorge and I worked on deployemnet; he implemented back-end and I worked on front-end
+3. fixed logout function
