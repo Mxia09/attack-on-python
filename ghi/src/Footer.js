@@ -30,6 +30,7 @@ function Footer() {
               <ul className="list-unstyled mb-0 text-light">
                 <li><NavLink className="nav-link" to="/about/">About Us</NavLink></li>
                 <li><NavLink className="nav-link" to="/about/">Meet The Team</NavLink></li>
+                <li><NavLink className="nav-link" to="/create-testimonial/">Create Testimonial</NavLink></li>
               </ul>
         </div>
 
@@ -39,7 +40,7 @@ function Footer() {
 
           <ul className="list-unstyled text-light">
             <li>
-              Help@AttackOnPython.com
+              <a href="mailto: help@AttackOnPython.com" style={{ color: 'white'}}>Help@AttackOnPython.com</a>
             </li>
             <li>
               (123) 456-7890

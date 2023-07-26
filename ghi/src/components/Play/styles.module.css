@@ -7,11 +7,10 @@
     rgb(255, 0, 0) 100%
   );
 
-  width: 100vw;
-  height: 100vh;
+  width: 750;
+  height: 500;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   flex-direction: column;
   justify-content: space-between;
 }
-

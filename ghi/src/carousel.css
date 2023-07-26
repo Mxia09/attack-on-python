@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="number-slide"],
+[class*=" number-slide"] {
+  background: rgba(128, 128, 128, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  color: #00000000;
+  font-weight: 500;
+  height: 500px;
+  max-height: 500vh;
+}
+
+.number-slide1 {
+  background-image: url('./images/attack-on-python-logo.png') ;
+  background-size: cover;
+  background-position: center;
+
+}
+
+
+.number-slide2 {
+  background-image: url('./images/fred.png') ;
+  background-size: cover;
+  background-position: center;
+}
+
+
+.number-slide3 {
+  background-image: url('./images/jorge.png') ;
+  background-size: cover;
+  background-position: center;
+}
+
+.number-slide4 {
+  background-image: url('./images/max.png') ;
+  background-size: cover;
+  background-position: center;
+}
+
+.number-slide5 {
+  background-image: url('./images/marvin.png') ;
+  background-size: cover;
+  background-position: center;
+}
+
+.number-slide6 {
+  background-image: url('./images/russ.jpg') ;
+  background-size: cover;
+  background-position: center;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.scene {
+  width: 260px;
+  height: 200px;
+  perspective: 1000px;
+  position: relative;
+}
+.scene .carousel.keen-slider {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: visible;
+  transform: translateZ(-288px);
+  transform-style: preserve-3d;
+}
+.carousel__cell {
+  position: absolute;
+  width: 240px;
+  left: 10px;
+  height: 200px;
+}

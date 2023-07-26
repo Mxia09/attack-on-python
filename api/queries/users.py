@@ -14,6 +14,9 @@ class UserIn(BaseModel):
     password: str
     email: str
     profile_picture: str
+    security_question: str
+    security_answer: str
+
 
 class UserUpdate(BaseModel):
     first_name: Optional[str]
@@ -22,6 +25,9 @@ class UserUpdate(BaseModel):
     password: Optional[str]
     email: Optional[str]
     profile_picture: Optional[str]
+    security_question: Optional[str]
+    security_answer: Optional[str]
+
 
 class UserOut(BaseModel):
     id: str
@@ -30,6 +36,9 @@ class UserOut(BaseModel):
     username: str
     email: str
     profile_picture: str
+    security_question: str
+    security_answer: str
+
 
 class UserOutWithPassword(UserOut):
     hashed_password: str
@@ -42,9 +51,9 @@ class UserRepository:
                     result = db.execute(
                         """
                         INSERT INTO users
-                            (first_name, last_name, username, hashed_password, email, profile_picture)
+                            (first_name, last_name, username, hashed_password, email, profile_picture, security_question, security_answer)
                         VALUES
-                            (%s, %s, %s, %s, %s, %s)
+                            (%s, %s, %s, %s, %s, %s, %s, %s)
                         RETURNING id;
                         """,
                         [
@@ -53,7 +62,9 @@ class UserRepository:
                             user.username,
                             hashed_password,
                             user.email,
-                            user.profile_picture
+                            user.profile_picture,
+                            user.security_question,
+                            user.security_answer
                         ]
                     )
                     id = result.fetchone()[0]
@@ -76,7 +87,9 @@ class UserRepository:
                             username,
                             hashed_password,
                             email,
-                            profile_picture
+                            profile_picture,
+                            security_question,
+                            security_answer
                         FROM users
                         WHERE username = %s
                         or email = %s
@@ -96,7 +109,9 @@ class UserRepository:
                         username=user[3],
                         hashed_password=user[4],
                         email=user[5],
-                        profile_picture=user[6]
+                        profile_picture=user[6],
+                        security_question=user[7],
+                        security_answer=user[8]
                     )
         except Exception as e:
             print(e)
@@ -108,7 +123,7 @@ class UserRepository:
                 with conn.cursor() as db:
                     result = db.execute(
                         """
-                        SELECT id, first_name, last_name, username, hashed_password, email, profile_picture
+                        SELECT id, first_name, last_name, username, hashed_password, email, profile_picture, security_question, security_answer
                         FROM users
                         ORDER BY id;
                         """
@@ -122,7 +137,9 @@ class UserRepository:
                             username=user[3],
                             hashed_password=user[4],
                             email=user[5],
-                            profile_picture=user[6]
+                            profile_picture=user[6],
+                            security_question=user[7],
+                            security_answer=user[8]
                         )
                         result.append(user)
                     return result
@@ -142,7 +159,9 @@ class UserRepository:
                         username = %s,
                         hashed_password = %s,
                         email = %s,
-                        profile_picture = %s
+                        profile_picture = %s,
+                        security_question = %s,
+                        security_answer = %s
                         WHERE id = %s;
                         """,
                         [
@@ -152,6 +171,8 @@ class UserRepository:
                             hashed_password,
                             user.email,
                             user.profile_picture,
+                            user.security_question,
+                            user.security_answer,
                             user_id
                         ]
                     )
