@@ -69,6 +69,7 @@ class QuestionRepository:
         except Exception as e:
             print(e)
             return {"Error": "Could not create Question"}
+
     def get_one(self, question_id: int) -> Optional[QuestionOut]:
         try:
             with pool.connection() as conn:
@@ -107,6 +108,7 @@ class QuestionRepository:
         except Exception as e:
             print(e)
             return {"message": "Could not get that question"}
+
     def get_all(self) -> Union[List[QuestionOut], Error]:
         try:
             with pool.connection() as conn:
@@ -136,6 +138,7 @@ class QuestionRepository:
         except Exception as e:
             print(e)
             return {"Error": "Could not get all Questions"}
+
     def update_question(self, question_id: int, question: QuestionIn) -> Union[QuestionOut, Error]:
         try:
             with pool.connection() as conn:
