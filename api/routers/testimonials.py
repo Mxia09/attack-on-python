@@ -10,7 +10,7 @@ from queries.testimonials import (
 router = APIRouter()
 
 # Create a testimonial
-@router.post("/testimonials", response_model=Union[TestimonialOut, Error])
+@router.post("/api/testimonials", response_model=Union[TestimonialOut, Error])
 def create_testimonial(
     testimonial: TestimonialIn,
     response: Response,
@@ -20,14 +20,14 @@ def create_testimonial(
     return repo.create(testimonial)
 
 # Get all testimonials
-@router.get("/testimonials", response_model=Union[List[TestimonialOut], Error])
+@router.get("/api/testimonials", response_model=Union[List[TestimonialOut], Error])
 def get_all_testimonials(
     repo: TestimonialRepository = Depends(),
 ):
     return repo.get_all()
 
 # Update a testimonial by ID
-@router.put("/testimonials/{testimonial_id}", response_model=Union[TestimonialOut, Error])
+@router.put("/api/testimonials/{testimonial_id}", response_model=Union[TestimonialOut, Error])
 def update_testimonial(
     testimonial_id: int,
     testimonial: TestimonialIn,
@@ -36,7 +36,7 @@ def update_testimonial(
     return repo.update_testimonial(testimonial_id, testimonial)
 
 # Delete a testimonial by ID
-@router.delete("/testimonials/{testimonial_id}", response_model=bool)
+@router.delete("/api/testimonials/{testimonial_id}", response_model=bool)
 def delete_testimonial(
     testimonial_id: int,
     repo: TestimonialRepository = Depends(),
@@ -44,7 +44,7 @@ def delete_testimonial(
     return repo.delete_testimonial(testimonial_id)
 
 # Get one testimonial by ID
-@router.get("/testimonials/{testimonial_id}", response_model=Optional[TestimonialOut])
+@router.get("/api/testimonials/{testimonial_id}", response_model=Optional[TestimonialOut])
 def get_one_testimonial(
     testimonial_id: int,
     response: Response,

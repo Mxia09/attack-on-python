@@ -6,7 +6,6 @@ from queries.pool import pool
 class DuplicateUserError(ValueError):
     message: str
 
-
 class UserIn(BaseModel):
     first_name: str
     last_name: str
@@ -16,7 +15,6 @@ class UserIn(BaseModel):
     profile_picture: str
     security_question: str
     security_answer: str
-
 
 class UserUpdate(BaseModel):
     first_name: Optional[str]
@@ -28,7 +26,6 @@ class UserUpdate(BaseModel):
     security_question: Optional[str]
     security_answer: Optional[str]
 
-
 class UserOut(BaseModel):
     id: str
     first_name: str
@@ -39,10 +36,8 @@ class UserOut(BaseModel):
     security_question: str
     security_answer: str
 
-
 class UserOutWithPassword(UserOut):
     hashed_password: str
-
 
 class UserRepository:
     def create_user(self, user: UserIn, hashed_password: str) -> UserOutWithPassword:

@@ -9,7 +9,7 @@ from queries.scores import (
 router = APIRouter()
 
 
-@router.post("/scores", response_model=Union[ScoreOut, Error])
+@router.post("/api/scores", response_model=Union[ScoreOut, Error])
 def create_score(
     score: ScoreIn,
     response: Response,
@@ -20,13 +20,13 @@ def create_score(
 
 
 
-@router.get("/scores", response_model=Union[List[ScoreOut], Error])
+@router.get("/api/scores", response_model=Union[List[ScoreOut], Error])
 def get_all_scores(
     repo: ScoreRepository = Depends(),
 ):
     return repo.get_all()
 
-@router.put("/scores/{score_id}", response_model=Union[ScoreOut, Error])
+@router.put("/api/scores/{score_id}", response_model=Union[ScoreOut, Error])
 def update_score(
     score_id: int,
     score: ScoreIn,
@@ -34,14 +34,14 @@ def update_score(
 ) -> Union[Error, ScoreOut]:
     return repo.update(score_id, score)
 
-@router.delete("/scores/{score_id}", response_model=bool)
+@router.delete("/api/scores/{score_id}", response_model=bool)
 def delete_score(
     score_id: int,
     repo: ScoreRepository = Depends(),
 ) -> bool:
     return repo.delete_score(score_id)
 
-@router.get("/scores/{score_id}", response_model=Optional[ScoreOut])
+@router.get("/api/scores/{score_id}", response_model=Optional[ScoreOut])
 def get_one_score(
     score_id: int,
     response: Response,
