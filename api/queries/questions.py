@@ -95,15 +95,15 @@ class QuestionRepository:
                     if user is None:
                         return None
                     return QuestionOut(
-                            id=user[0],
-                            question=user[1],
-                            choice_1=user[2],
-                            choice_2=user[3],
-                            choice_3=user[4],
-                            choice_4=user[5],
-                            answer=user[6],
-                            hint=user[7],
-                            response=user[8]
+                        id=user[0],
+                        question=user[1],
+                        choice_1=user[2],
+                        choice_2=user[3],
+                        choice_3=user[4],
+                        choice_4=user[5],
+                        answer=user[6],
+                        hint=user[7],
+                        response=user[8]
                     )
         except Exception as e:
             print(e)
@@ -173,6 +173,7 @@ class QuestionRepository:
         except Exception as e:
             print(e)
             return {"Error": "Could not update the Question"}
+
     def delete_question(self, question_id: int) -> bool:
         try:
             with pool.connection() as conn:
