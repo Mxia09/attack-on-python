@@ -27,9 +27,9 @@ class QuestionOut(BaseModel):
     choice_4: str
     answer: str
     hint: str
-    response:str
+    response: str
 
-# took already answered and player id out bc of complications
+
 class QuestionRepository:
     def create(self, question: QuestionIn) -> Union[QuestionOut, Error]:
         try:
@@ -38,7 +38,16 @@ class QuestionRepository:
                     result = db.execute(
                         """
                         INSERT INTO questions
-                            (question, choice_1, choice_2, choice_3, choice_4, answer, hint, response)
+                            (
+                                question,
+                                choice_1,
+                                choice_2,
+                                choice_3,
+                                choice_4,
+                                answer,
+                                hint,
+                                response
+                            )
                         VALUES
                             (%s, %s, %s, %s, %s, %s, %s, %s)
                         RETURNING id;
@@ -60,6 +69,7 @@ class QuestionRepository:
         except Exception as e:
             print(e)
             return {"Error": "Could not create Question"}
+
     def get_one(self, question_id: int) -> Optional[QuestionOut]:
         try:
             with pool.connection() as conn:
@@ -85,19 +95,20 @@ class QuestionRepository:
                     if user is None:
                         return None
                     return QuestionOut(
-                            id=user[0],
-                            question=user[1],
-                            choice_1=user[2],
-                            choice_2=user[3],
-                            choice_3=user[4],
-                            choice_4=user[5],
-                            answer=user[6],
-                            hint=user[7],
-                            response=user[8]
+                        id=user[0],
+                        question=user[1],
+                        choice_1=user[2],
+                        choice_2=user[3],
+                        choice_3=user[4],
+                        choice_4=user[5],
+                        answer=user[6],
+                        hint=user[7],
+                        response=user[8]
                     )
         except Exception as e:
             print(e)
             return {"message": "Could not get that question"}
+
     def get_all(self) -> Union[List[QuestionOut], Error]:
         try:
             with pool.connection() as conn:
@@ -127,6 +138,7 @@ class QuestionRepository:
         except Exception as e:
             print(e)
             return {"Error": "Could not get all Questions"}
+
     def update_question(self, question_id: int, question: QuestionIn) -> Union[QuestionOut, Error]:
         try:
             with pool.connection() as conn:
@@ -161,6 +173,7 @@ class QuestionRepository:
         except Exception as e:
             print(e)
             return {"Error": "Could not update the Question"}
+
     def delete_question(self, question_id: int) -> bool:
         try:
             with pool.connection() as conn:
