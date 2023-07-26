@@ -153,7 +153,8 @@
 
 - Tuesday:
 
-  1.
+  1. CD/CI
+     Staring CD/CI
 
   2.
 
