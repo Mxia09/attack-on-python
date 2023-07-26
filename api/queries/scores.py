@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional, List, Union
+from typing import List, Union
 from queries.pool import pool
 
 class Error(BaseModel):
@@ -61,9 +61,9 @@ class ScoreRepository:
                     result = []
                     for score in db:
                         score = ScoreOutWithUser(
-                                id=score[0],
-                                total_time=score[1],
-                                username=score[2]
+                            id=score[0],
+                            total_time=score[1],
+                            username=score[2]
                         )
                         result.append(score)
                     print(result)
@@ -87,8 +87,6 @@ class ScoreRepository:
         except Exception as e:
             print(e)
             return False
-
-
 
     def score_in_to_out(self, id: int, score: ScoreIn):
         old_data = score.dict()
