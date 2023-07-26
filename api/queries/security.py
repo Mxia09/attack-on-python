@@ -16,7 +16,6 @@ class SecurityOut(BaseModel):
     security_answer: str
     username: str
 
-
 class SecurityOutWithUser(BaseModel):
     id: int
     security_question: str
@@ -30,17 +29,17 @@ class SecurityRepository:
                 with conn.cursor() as db:
                     result = db.execute(
                         """
-                            INSERT INTO security
-                                (security_question, security_answer, username)
-                            VALUES
-                                (%s, %s, %s)
-                            RETURNING id;
-                            """,
-                            [
-                                security.security_question,
-                                security.security_answer,
-                                security.username,
-                            ]
+                        INSERT INTO security
+                            (security_question, security_answer, username)
+                        VALUES
+                            (%s, %s, %s)
+                        RETURNING id;
+                        """,
+                        [
+                            security.security_question,
+                            security.security_answer,
+                            security.username,
+                        ]
                     )
                     id = result.fetchone()[0]
                     return self.security_in_to_out(id, security)
@@ -67,10 +66,10 @@ class SecurityRepository:
                     result = []
                     for security in db:
                         security = SecurityOutWithUser(
-                                id=security[0],
-                                security_question=security[1],
-                                security_answer=security[2],
-                                username=security[3]
+                            id=security[0],
+                            security_question=security[1],
+                            security_answer=security[2],
+                            username=security[3]
                         )
                         result.append(security)
                     return result
@@ -93,8 +92,6 @@ class SecurityRepository:
         except Exception as e:
             print(e)
             return False
-
-
 
     def security_in_to_out(self, id: int, security: SecurityIn):
         old_data = security.dict()

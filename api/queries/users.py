@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List, Union, Optional
+from typing import List, Optional
 from queries.pool import pool
 
 
@@ -15,8 +15,6 @@ class UserIn(BaseModel):
     email: str
     profile_picture: str
 
-
-
 class UserUpdate(BaseModel):
     first_name: Optional[str]
     last_name: Optional[str]
@@ -24,8 +22,6 @@ class UserUpdate(BaseModel):
     password: Optional[str]
     email: Optional[str]
     profile_picture: Optional[str]
-
-
 
 class UserOut(BaseModel):
     id: str
@@ -35,11 +31,8 @@ class UserOut(BaseModel):
     email: str
     profile_picture: str
 
-
-
 class UserOutWithPassword(UserOut):
     hashed_password: str
-
 
 class UserRepository:
     def create_user(self, user: UserIn, hashed_password: str) -> UserOutWithPassword:

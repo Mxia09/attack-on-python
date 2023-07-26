@@ -26,16 +26,16 @@ class ScoreRepository:
                 with conn.cursor() as db:
                     result = db.execute(
                         """
-                            INSERT INTO scores
-                                (total_time, username)
-                            VALUES
-                                (%s, %s)
-                            RETURNING id;
-                            """,
-                            [
-                                score.total_time,
-                                score.username,
-                            ]
+                        INSERT INTO scores
+                            (total_time, username)
+                        VALUES
+                            (%s, %s)
+                        RETURNING id;
+                        """,
+                        [
+                            score.total_time,
+                            score.username,
+                        ]
                     )
                     id = result.fetchone()[0]
                     return self.score_in_to_out(id, score)

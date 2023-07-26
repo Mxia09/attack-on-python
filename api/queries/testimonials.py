@@ -82,7 +82,7 @@ class TestimonialRepository:
                         ORDER BY id;
                         """
                     )
-                    testimonials = []
+                    result = []
                     for testimonial in db:
                         testimonial = TestimonialOut(
                             id=testimonial[0],
@@ -90,8 +90,8 @@ class TestimonialRepository:
                             review=testimonial[2],
                             profile_picture=testimonial[3]
                         )
-                        testimonials.append(testimonial)
-                    return testimonials
+                        result.append(testimonial)
+                    return result
         except Exception as e:
             print(e)
             return Error(message="Could not get all testimonials")
