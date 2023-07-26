@@ -12,10 +12,10 @@ router = APIRouter()
 
 @router.post("/api/scores", response_model=Union[ScoreOut, Error])
 def create_score(
-        score: ScoreIn,
-        response: Response,
-        repo: ScoreRepository = Depends(),
-        account_data: dict = Depends(authenticator.get_current_account_data),
+    score: ScoreIn,
+    response: Response,
+    repo: ScoreRepository = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data),
 ):
     response.status_code = 200
     return repo.create(score)
