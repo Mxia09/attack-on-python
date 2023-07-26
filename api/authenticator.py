@@ -3,8 +3,6 @@ from fastapi import Depends
 from jwtdown_fastapi.authentication import Authenticator
 from queries.users import UserOutWithPassword, UserRepository, UserOut
 
-
-
 class UserAuthenticator(Authenticator):
     async def get_account_data(
         self,

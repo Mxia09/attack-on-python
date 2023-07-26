@@ -27,9 +27,9 @@ class QuestionOut(BaseModel):
     choice_4: str
     answer: str
     hint: str
-    response:str
+    response: str
 
-# took already answered and player id out bc of complications
+
 class QuestionRepository:
     def create(self, question: QuestionIn) -> Union[QuestionOut, Error]:
         try:
@@ -38,7 +38,16 @@ class QuestionRepository:
                     result = db.execute(
                         """
                         INSERT INTO questions
-                            (question, choice_1, choice_2, choice_3, choice_4, answer, hint, response)
+                            (
+                                question,
+                                choice_1,
+                                choice_2,
+                                choice_3,
+                                choice_4,
+                                answer,
+                                hint,
+                                response
+                            )
                         VALUES
                             (%s, %s, %s, %s, %s, %s, %s, %s)
                         RETURNING id;
