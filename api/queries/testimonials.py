@@ -9,12 +9,14 @@ class TestimonialIn(BaseModel):
     name: str
     review: str
     profile_picture: str
+    comments: str
 
 class TestimonialOut(BaseModel):
     id: int
     name: str
     review: str
     profile_picture: str
+    comments: str
 
 class TestimonialRepository:
     def create(self, testimonial: TestimonialIn) -> Union[TestimonialOut, Error]:
@@ -24,15 +26,16 @@ class TestimonialRepository:
                     result = db.execute(
                         """
                         INSERT INTO testimonials
-                            (name, review, profile_picture)
+                            (name, review, profile_picture, comments)
                         VALUES
-                            (%s, %s, %s)
+                            (%s, %s, %s, %s)
                         RETURNING id;
                         """,
                         [
                             testimonial.name,
                             testimonial.review,
-                            testimonial.profile_picture
+                            testimonial.profile_picture,
+                            testimonial.comments
                         ]
                     )
                     id = result.fetchone()[0]
@@ -52,7 +55,8 @@ class TestimonialRepository:
                             id,
                             name,
                             review,
-                            profile_picture
+                            profile_picture,
+                            comments
                         FROM testimonials
                         WHERE id = %s
                         """,
@@ -65,7 +69,8 @@ class TestimonialRepository:
                         id=testimonial[0],
                         name=testimonial[1],
                         review=testimonial[2],
-                        profile_picture=testimonial[3]
+                        profile_picture=testimonial[3],
+                        comments=testimonial[4]
                     )
         except Exception as e:
             print(e)
@@ -77,7 +82,7 @@ class TestimonialRepository:
                 with conn.cursor() as db:
                     result = db.execute(
                         """
-                        SELECT id, name, review, profile_picture
+                        SELECT id, name, review, profile_picture, comments
                         FROM testimonials
                         ORDER BY id;
                         """
@@ -88,7 +93,8 @@ class TestimonialRepository:
                             id=testimonial[0],
                             name=testimonial[1],
                             review=testimonial[2],
-                            profile_picture=testimonial[3]
+                            profile_picture=testimonial[3],
+                            comments=testimonial[4]
                         )
                         result.append(testimonial)
                     return result
@@ -105,13 +111,15 @@ class TestimonialRepository:
                         UPDATE testimonials
                         SET name = %s,
                         review = %s,
-                        profile_picture = %s
+                        profile_picture = %s,
+                        comments = %s,
                         WHERE id = %s;
                         """,
                         [
                             testimonial.name,
                             testimonial.review,
                             testimonial.profile_picture,
+                            testimonial.comments,
                             testimonial_id
                         ]
                     )

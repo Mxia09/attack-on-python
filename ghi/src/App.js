@@ -15,7 +15,8 @@ import { Play } from "./components";
 import About from "./About";
 import ForgotPasswordForm from "./ForgotPassword";
 import Footer from "./Footer";
-// import "./darkMode.css";
+import Leaderboards from "./Leaderboards";
+import TestimonialForm from "./TestimonialForm";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -116,6 +117,26 @@ function App() {
                   path="/forgot-password"
                   element={<ForgotPasswordForm />}
                 />
+                <Route path="/leaderboards"
+                      element ={<Leaderboards
+                      toast={toast}
+                      showToast={showToast}
+                      setShowToast={setShowToast}
+                      toastMessage={toastMessage}
+                      setToastMessage={setToastMessage}
+                      toastVariant={toastVariant}
+                      setToastVariant={setToastVariant}/>}
+                      />
+                <Route path="/create-testimonial"
+                      element={<TestimonialForm
+                      toast={toast}
+                      showToast={showToast}
+                      setShowToast={setShowToast}
+                      toastMessage={toastMessage}
+                      setToastMessage={setToastMessage}
+                      toastVariant={toastVariant}
+                      setToastVariant={setToastVariant}/>}
+                      />
               </Routes>
             </div>
           </main>

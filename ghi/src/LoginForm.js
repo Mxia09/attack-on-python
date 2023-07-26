@@ -9,6 +9,8 @@ export default function LoginForm(props) {
   const { token } = useToken();
   const navigate = useNavigate();
 
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -26,7 +28,9 @@ export default function LoginForm(props) {
 
   return (
     <div>
-      <div style={{ position: "fixed", right: 0, width: 200 }}></div>
+      <div style={{ position: 'fixed', right: 0, width: 200 }}>
+        {props.toast}
+      </div>
       <div className="row">
         <div className="offset-3 col-6" style={{ padding: 50 }}>
           <div className="shadow-lg p-4 mt-4">
@@ -66,7 +70,7 @@ export default function LoginForm(props) {
               </p>
               <div>
                 <input
-                  className="btn bg-info btn-block text-black font-bold rounded hover:bg-secondary focus:accent-outline"
+                  className="btn btn-primary"
                   type="submit"
                   value="Login"
                 />

@@ -9,7 +9,9 @@ steps = [
             username VARCHAR(100) NOT NULL UNIQUE,
             hashed_password VARCHAR(100) NOT NULL,
             email VARCHAR(100) NOT NULL,
-            profile_picture TEXT NOT NULL
+            profile_picture TEXT NOT NULL,
+            security_question TEXT NOT NULL,
+            security_answer TEXT NOT NULL
         );
         """,
         # "Down" SQL statement
@@ -32,22 +34,5 @@ steps = [
         """
         DROP TABLE  scores;
         """
-    ],
-    [
-        # "Up" SQL statement
-        """
-        CREATE TABLE security (
-            id SERIAL PRIMARY KEY NOT NULL,
-            security_question TEXT,
-            security_answer TEXT,
-            username VARCHAR(50),
-            FOREIGN KEY (username) REFERENCES users(username)
-        );
-        """,
-
-        # "Down" SQL statement
-        """
-        DROP TABLE  security;
-        """
-    ],
+    ]
 ]

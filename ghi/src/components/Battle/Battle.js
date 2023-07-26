@@ -35,8 +35,8 @@ export const Battle = ({ onGameEnd }) => {
     };
 
     return (
-        <>
-            <div className={styles.opponent}>
+        <div style={{ width: 750 }} >
+            <div className={styles.opponent} >
                 <PlayerSummary
                     health={opponentHealth}
                     main={false}
@@ -45,12 +45,13 @@ export const Battle = ({ onGameEnd }) => {
                     maxHealth={opponentStats.maxHealth}
                 />
             </div>
-            <div className={styles.gameImages}>
-                <div className={styles.playerSprite}>
+            <div className={styles.gameImages} style={{ width: 1500 }}>
+                <div className={styles.playerSprite} style={{ width: 1500 }}>
                     <img
                         alt={playerStats.name}
                         src={playerStats.img}
                         className={styles.playerAnimation}
+                        style={{ height: 250, right: 0 }}
                     />
                 </div>
             </div>
@@ -59,8 +60,10 @@ export const Battle = ({ onGameEnd }) => {
                     src={opponentStats.img}
                     alt={opponentStats.name}
                     className={styles.opponentAnimation}
+                    style={{ height: 200 }}
                 />
             </div>
+
             <div className={styles.user}>
                 <div className={styles.summary}>
                     <PlayerSummary
@@ -84,7 +87,6 @@ export const Battle = ({ onGameEnd }) => {
             </div>
             {/* Add BattleAnnouncer component to display messages */}
             <BattleAnnouncer message={announcerMessage} />
-        </>
+        </div>
     );
 };
-

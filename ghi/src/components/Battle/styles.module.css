@@ -42,19 +42,18 @@
 
 .characters {
     width: 100%;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .gameImages {
     display: flex;
-    justify-content: space-between;
-    padding: 25px;
+    /* justify-content: space-between; */
+    padding: 10px;
     box-sizing: border-box;
 }
 
 .characters .gameImages img {
-    max-height: 25vh;
-    min-height: 150px;
+    height: 10px;
 }
 
 .static {

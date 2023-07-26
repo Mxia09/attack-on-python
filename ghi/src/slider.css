@@ -1,0 +1,15 @@
+
+[class^="num-slide"],
+[class*=" num-slide"] {
+  background: grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 800;
+  height: 200px;
+}
+
+.num-slide {
+  background: linear-gradient(128deg, rgba(64, 175, 255, 1) 15%, rgba(63, 97, 255, 1));
+}

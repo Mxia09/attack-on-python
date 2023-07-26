@@ -5,9 +5,9 @@ const blue = '#1953cb';
 
 export const PlayerSummary = ({ main = false, name, level, health, maxHealth }) => {
     return (
-        <div 
-            style = {{ backgroundColor: main ? blue : red }}
-            className={styles.main} 
+        <div
+            style={{ backgroundColor: main ? blue : red, }}
+            className={styles.main}
         >
             <div className={styles.info}>
                 <div className={styles.name}>{name}</div>
