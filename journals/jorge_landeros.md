@@ -142,3 +142,36 @@
   2. Docker containers
   3. wireframe
   4. Logo
+
+# **Week 17**
+
+- Monday:
+
+  1.
+
+  2.
+
+- Tuesday:
+
+  1.
+
+  2.
+
+- Wednesday:
+
+  1. After working on CD/CI Yesterday I came across a road bloack but today I fixed it by fixing all lint issues.
+     Tidious work but relieved it wasnt too much errors.
+
+- Thursday:
+
+  1. MVP
+  2. Docker containers
+  3. wireframe
+  4. Logo
+
+- Friday:
+
+  1. MVP
+  2. Docker containers
+  3. wireframe
+  4. Logo
