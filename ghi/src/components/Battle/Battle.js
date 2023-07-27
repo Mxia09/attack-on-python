@@ -12,8 +12,12 @@ export const Battle = ({ onGameEnd }) => {
     const { playerHealth,
         opponentHealth,
         handlePlayerAnswer,
-        announcerMessage }
+        announcerMessage,
+        playerAnimation,
+        opponentAnimation
+    }
         = useBattleSequence();
+
     const [currentQuestionId, setCurrentQuestionId] = useState(1);
 
     useEffect(() => {
@@ -50,8 +54,18 @@ export const Battle = ({ onGameEnd }) => {
                     <img
                         alt={playerStats.name}
                         src={playerStats.img}
-                        className={styles.playerAnimation}
-                        style={{ height: 250, right: 0 }}
+                        // IIFE for playerAnimation
+                        className={
+                            (() => {
+                                if (playerAnimation === "attack") {
+                                    return styles.attack;
+                                } else if (playerAnimation === "damage") {
+                                    return styles.damage;
+                                } else {
+                                    return styles.static;
+                                }
+                            })()
+                        }
                     />
                 </div>
             </div>
@@ -59,8 +73,18 @@ export const Battle = ({ onGameEnd }) => {
                 <img
                     src={opponentStats.img}
                     alt={opponentStats.name}
-                    className={styles.opponentAnimation}
-                    style={{ height: 200 }}
+                    // IIFE for Opponent Animations
+                    className={
+                        (() => {
+                            if (opponentAnimation === "attack") {
+                                return styles.attack;
+                            } else if (opponentAnimation === "damage") {
+                                return styles.damage;
+                            } else {
+                                return styles.static;
+                            }
+                        })()
+                    }
                 />
             </div>
 
@@ -85,8 +109,10 @@ export const Battle = ({ onGameEnd }) => {
                     </div>
                 </div>
             </div>
-            {/* Add BattleAnnouncer component to display messages */}
-            <BattleAnnouncer message={announcerMessage} />
+            <div className={styles.hud}>
+                {/* BattleAnnouncer component to display messages */}
+                <BattleAnnouncer message={announcerMessage} />
+            </div>
         </div>
     );
 };
