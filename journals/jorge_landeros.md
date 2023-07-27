@@ -157,6 +157,7 @@
      Staring CD/CI
 
   2.Unit Test
+  Started creating my part on the unit tests.
 
 - Wednesday:
 
@@ -168,13 +169,8 @@
   1. Back End Deployment
      The back end stoped working bc of a migration file error but was fixed by inserting our variables into gitlab ci/cd
   2. User Page
-     User page now makes a request to the token and gets the data, still needs to be finished.
-  3. wireframe
-  4. Logo
+     User page now makes a request to the token and gets the data, still needs to be finished. it does show the users information based on the token, css still needs more improving but it needs another link to edit the user profile allowing them to change their information.
 
 - Friday:
 
   1. MVP
-  2. Docker containers
-  3. wireframe
-  4. Logo
