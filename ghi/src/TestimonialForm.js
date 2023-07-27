@@ -40,7 +40,7 @@ function TestimonialForm(props) {
         data.profile_picture = profile_pic
         data.comments = comments
 
-        const testimonialUrl = 'http://localhost:8000/api/testimonials'
+        const testimonialUrl = `${process.env.REACT_APP_API_HOST}/api/testimonials`
         const fetchConfig = {
             method: 'post',
             body: JSON.stringify(data),
@@ -127,9 +127,6 @@ function TestimonialForm(props) {
 
     return (
         <div>
-            <div style={{ position: 'fixed', right: 0, width: 200 }}>
-                {props.toast}
-            </div>
             <div className="row">
                 <div className="offset-3 col-6" style={{ padding: 50 }}>
                     <div className="shadow p-4 mt-4">

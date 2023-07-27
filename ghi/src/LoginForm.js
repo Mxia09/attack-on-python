@@ -29,9 +29,9 @@ export default function LoginForm(props) {
 
   return (
     <div>
-      <div style={{ position: 'fixed', right: 0, width: 200 }}>
+      {/* <div style={{ position: 'fixed', right: 0, width: 200 }}>
         {props.toast}
-      </div>
+      </div> */}
       <div className="row">
         <div className="offset-3 col-6" style={{ padding: 50 }}>
           <div className="shadow-lg p-4 mt-4">

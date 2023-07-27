@@ -17,10 +17,10 @@ Troubleshooting Errors with previous merges to recieve the most up to date code 
 Worked on creating Leaderboards page, Tied the back end data to show on the front end.
 
 ## July 21, 2023
-Successfully added Carousel and slider feature on our Mainpage front end
+Successfully added carousel and slider feature on our Mainpage front end allowing us to scroll thru the carousels images and the testimonials on the slider
 
 ## July 24, 2023
-Finishing up Mainpage front end Testimonials
+Refactoring testimonials slider on front end, to allow it to seamlessly pull new testimonials as they're added to the database.
 
 ## July 25,2023
 Made modifications for Testimonials back end along with creating a form to allow the creation of new testimonials with some refactoring to it's front end on the Mainpage

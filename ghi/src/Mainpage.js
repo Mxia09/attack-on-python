@@ -12,7 +12,7 @@ function Mainpage() {
   const { token } = useToken();
 
   async function getTestimonials() {
-    const url = 'http://localhost:8000/api/testimonials'
+    const url = `${process.env.REACT_APP_API_HOST}/api/testimonials`
     const response = await fetch(url)
     if (response.ok) {
       const data = await response.json()
