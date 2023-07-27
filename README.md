@@ -28,6 +28,6 @@ Our target audience is individuals who are in the process of learning the fundam
 ## Project Initialization
 
 Attack on Python is available at the following link:
-- Game:
+- Game: https://attack-on-python.gitlab.io/attack-on-python
 
 - Docs: https://mar-5-pt-pythonfastapi.mod3projects.com/docs#/default/create_user_api_users_post
