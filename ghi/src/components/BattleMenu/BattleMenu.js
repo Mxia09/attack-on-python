@@ -23,24 +23,22 @@ export const BattleMenu = ({ question_id, onAnswerSelected }) => {
         <div className={styles.main}>
             <BattleAnnouncer message={question.question} />
 
-            <div key={question.id}>
+            <div className={styles.buttongrid}>
                 {Object.keys(question).map((key) => {
                     if (key.startsWith("choice_")) {
                         const option = question[key];
                         return (
-                            <div className={styles.buttongrid}>
-                                <button
-                                    className={styles.option}
-                                    key={key}
-                                    onClick={() => {
-                                        setPlayerAnswer(option);
-                                        // Pass the player's answer and the correct answer to onAnswerSelected
-                                        onAnswerSelected(option, correctAnswer);
-                                    }}
-                                >
-                                    {option}
-                                </button>
-                            </div>
+                            <button
+                                key={key}
+                                className={styles.option}
+                                onClick={() => {
+                                    setPlayerAnswer(option);
+                                    // Pass the player's answer and the correct answer to onAnswerSelected
+                                    onAnswerSelected(option, correctAnswer);
+                                }}
+                            >
+                                {option}
+                            </button>
                         );
                     }
                     return null;

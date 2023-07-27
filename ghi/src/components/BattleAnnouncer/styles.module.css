@@ -1,5 +1,5 @@
 .main {
-    height: 200px;
+    height:80px;
     padding: 5px;
     border-radius: 10px;
     box-sizing: border-box;
@@ -15,5 +15,5 @@
 
 .message {
     text-align: center;
-    font-size: 32px;
+    font-size: 20px;
 }
