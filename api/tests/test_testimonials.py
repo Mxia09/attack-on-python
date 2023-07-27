@@ -7,13 +7,13 @@ client = TestClient(app)
 class ExampleTestimonialRepository:
     def get_all(self):
         return [
-        {
-            "id": 0,
-            "name": "string",
-            "review": "string",
-            "profile_picture": "string",
-            "comments": "comments_string"
-        }
+            {
+                "id": 0,
+                "name": "string",
+                "review": "string",
+                "profile_picture": "string",
+                "comments": "comments_string"
+            }
         ]
 
 class CreateTestimonialRepository:
@@ -24,24 +24,24 @@ class CreateTestimonialRepository:
             "review": "review string",
             "profile_picture": "picture string",
             "comments": "comments_string"
-            }
+        }
         result.update(testimonial)
         return result
 
 def test_get_all_testimonials():
 
-    #arrange
+    # arrange
     app.dependency_overrides[TestimonialRepository] = ExampleTestimonialRepository
 
     response = client.get("/api/testimonials")
-    #act
+    # act
     app.dependency_overrides = {}
-    #assert
+    # assert
     assert response.status_code == 200
 
 def test_create_testimonials():
 
-    #arrange
+    # arrange
     app.dependency_overrides[TestimonialRepository] = CreateTestimonialRepository
 
     json = {
@@ -49,7 +49,7 @@ def test_create_testimonials():
         "review": "review_string",
         "profile_picture": "picture_string",
         "comments": "comments_string"
-        }
+    }
 
     expected = {
         "id": 1,
@@ -57,11 +57,11 @@ def test_create_testimonials():
         "review": "review_string",
         "profile_picture": "picture_string",
         "comments": "comments_string"
-        }
+    }
 
     response = client.post("/api/testimonials", json=json)
-    #act
+    # act
     app.dependency_overrides = {}
-    #assert
+    # assert
     assert response.status_code == 200
     assert response.json() == expected

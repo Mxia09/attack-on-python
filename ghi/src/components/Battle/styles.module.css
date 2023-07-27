@@ -1,13 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-.user,
+/* In your CSS file */
+
+/* Apply styles to the player and opponent sprites */
+.opponent,
+.user {
+  display: flex;
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  gap: 10px; /* Add gap between elements */
+}
+
+/* Align opponent summary to the right */
 .opponent {
-    gap: 10px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 25px;
-    box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+/* Align player summary to the left */
+.user .summary {
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+/* Set max height for the player and opponent sprite images */
+.opponentSprite img,
+.gameImages img {
+  height: 250px;
+}
+
+/* Set height for the opponent sprite image */
+.opponentSprite img {
+  height: 200px;
 }
 
 .hud {
@@ -19,25 +43,6 @@
 
 .hudChild {
     flex: 1;
-    height: 200px;
-}
-
-.gameHeader {
-    font-size: 48px;
-    color: #fdac00;
-    text-shadow: 0px 0px 5px #7f0000;
-    font-family: 'Press Start 2P', cursive;
-}
-
-.summary {
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
-}
-
-.opponent .summary {
-    align-items: flex-start;
-    justify-content: flex-end;
 }
 
 .characters {
@@ -47,13 +52,9 @@
 
 .gameImages {
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     padding: 10px;
     box-sizing: border-box;
-}
-
-.characters .gameImages img {
-    height: 10px;
 }
 
 .static {
@@ -71,12 +72,6 @@
 .opponentSprite .attack {
     transition: 0.1s;
     transform: translateX(-100px)
-}
-
-.magic {
-    transition: 0.2s;
-    transform: translateY(-25px);
-    animation: shake 0.5s infinite;
 }
 
 .damage {

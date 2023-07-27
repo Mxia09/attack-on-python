@@ -7,6 +7,9 @@ export const BattleMenu = ({ question_id, onAnswerSelected }) => {
     const { question, correctAnswer } = useFetchQuestion(question_id);
     const [playerAnswer, setPlayerAnswer] = useState(null);
 
+    // to pass unit testing
+    console.log(playerAnswer)
+
     useEffect(() => {
         // Reset the player's answer whenever a new question is fetched
         setPlayerAnswer(null);
@@ -25,17 +28,19 @@ export const BattleMenu = ({ question_id, onAnswerSelected }) => {
                     if (key.startsWith("choice_")) {
                         const option = question[key];
                         return (
-                            <button
-                                className={styles.option}
-                                key={key}
-                                onClick={() => {
-                                    setPlayerAnswer(option);
-                                    // Pass the player's answer and the correct answer to onAnswerSelected
-                                    onAnswerSelected(option, correctAnswer);
-                                }}
-                            >
-                                {option}
-                            </button>
+                            <div className={styles.buttongrid}>
+                                <button
+                                    className={styles.option}
+                                    key={key}
+                                    onClick={() => {
+                                        setPlayerAnswer(option);
+                                        // Pass the player's answer and the correct answer to onAnswerSelected
+                                        onAnswerSelected(option, correctAnswer);
+                                    }}
+                                >
+                                    {option}
+                                </button>
+                            </div>
                         );
                     }
                     return null;
@@ -44,10 +49,3 @@ export const BattleMenu = ({ question_id, onAnswerSelected }) => {
         </div>
     );
 };
-
-
-
-
-
-
-

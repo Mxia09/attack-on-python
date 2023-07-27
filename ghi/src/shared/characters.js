@@ -6,13 +6,13 @@ export const playerStats = {
     maxHealth: 120,
     name: "Young Wizard",
     img: wizard,
-    attack: 40
+    attack: 10
 }
 
 export const opponentStats = {
     level: 15,
     name: 'Venomous Python',
-    maxHealth: 120,
+    maxHealth: 50,
     img: python,
     attack: 40
 }

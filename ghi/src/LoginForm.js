@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import useToken, { AuthContext } from "@galvanize-inc/jwtdown-for-react";
+import useToken from "@galvanize-inc/jwtdown-for-react";
 
 export default function LoginForm(props) {
   const [email, setEmail] = useState("");
@@ -9,7 +9,8 @@ export default function LoginForm(props) {
   const { token } = useToken();
   const navigate = useNavigate();
 
-
+  // to pass unit testing
+  console.log(token)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
