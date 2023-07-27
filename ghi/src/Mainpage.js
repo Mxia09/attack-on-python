@@ -4,10 +4,12 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import "./carousel.css";
 import "./slider.css";
+import useToken from "@galvanize-inc/jwtdown-for-react";
 
 
 function Mainpage() {
   const [testimonials, setTestimonials] = useState([])
+  const { token } = useToken();
 
   async function getTestimonials() {
     const url = 'http://localhost:8000/api/testimonials'
@@ -86,7 +88,11 @@ function Mainpage() {
           <p className="lead mb-4">
             Learn Python
           </p>
-          <NavLink to='/play'><button className="btn btn-primary" style={{ height: 80, width: 250, fontSize: 30 }}>Play</button></NavLink>
+          {token ?
+            <NavLink to='/play'><button className="btn btn-primary" style={{ height: 80, width: 250, fontSize: 30 }}>Play</button></NavLink>
+            :
+            <NavLink to='/login'><button className="btn btn-primary" style={{ height: 80, width: 250, fontSize: 30 }}>Play</button></NavLink>
+          }
         </div>
       </div>
 

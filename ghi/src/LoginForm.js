@@ -14,11 +14,11 @@ export default function LoginForm(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await login(email, password);
       props.setShowToast(true);
       props.setToastVariant("success");
       props.setToastMessage("Login Successful");
-      navigate("/play");
+      await login(email, password);
+      navigate("/");
     } catch (error) {
       props.setShowToast(true);
       props.setToastVariant("danger");
@@ -60,6 +60,7 @@ export default function LoginForm(props) {
                   name="password"
                   id="password"
                   className="form-control"
+                  autoComplete="current-password"
                 />
                 <label htmlFor="password">Password</label>
               </div>
