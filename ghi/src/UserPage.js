@@ -23,7 +23,7 @@ export default function UserPage() {
         } catch (e) {
             console.error(e);
         }
-    }, [setToken]);
+    }, [setToken, user]); // Include 'user' in the dependency array
 
     useEffect(() => {
         fetchUsers();
