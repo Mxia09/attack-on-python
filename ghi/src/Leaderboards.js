@@ -7,7 +7,7 @@ function Leaderboards(props) {
     useEffect(() => {
         async function fetchData() {
             try {
-                const url = 'http://localhost:8000/api/users'
+                const url = 'http://localhost:8000/api/scores'
                 const response = await fetch(url)
                 if (response.ok) {
                     const data = await response.json()
@@ -34,7 +34,7 @@ function Leaderboards(props) {
                 <tr key={user.id} className="col">
                     <td>{user.id}</td>
                     <td>{user.username}</td>
-                    <td>{user.first_name}</td>
+                    <td>{user.total_time}</td>
                 </tr>
             )
         })

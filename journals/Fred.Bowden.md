@@ -43,4 +43,13 @@
 - Debug carousel testimonials
 
 # **July 24, 2023**
-- MONDAY
+- debug fetching endpoints for game with max
+
+# **July 25, 2023**
+- studied unit tests
+- shared knowledge with group
+- help facilitate creating unit tests with group
+
+# **July 26, 2023**
+- debug unit tests for main branch
+- pushed unit tests to remote(waiting to merge for marv to update backend issue)
