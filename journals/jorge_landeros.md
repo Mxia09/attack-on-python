@@ -165,8 +165,10 @@
 
 - Thursday:
 
-  1. MVP
-  2. Docker containers
+  1. Back End Deployment
+     The back end stoped working bc of a migration file error but was fixed by inserting our variables into gitlab ci/cd
+  2. User Page
+     User page now makes a request to the token and gets the data, still needs to be finished.
   3. wireframe
   4. Logo
 
