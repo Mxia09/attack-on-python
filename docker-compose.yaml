@@ -7,6 +7,8 @@ services:
       SIGNING_KEY: 87fe4a3fcfb60092dbaeb854a196bc3d9b190aed7930c734749e852
       CORS_HOST: http://localhost:3000
       DATABASE_URL: postgresql://example_user:secret@db/example
+      WAIT_HOSTS: db:5432
+      PORT: 8000
     build:
       context: api
       dockerfile: Dockerfile.dev
