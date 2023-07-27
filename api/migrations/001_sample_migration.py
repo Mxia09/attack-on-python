@@ -29,7 +29,6 @@ steps = [
             FOREIGN KEY (username) REFERENCES users(username)
         );
         """,
-
         # "Down" SQL statement
         """
         DROP TABLE  scores;

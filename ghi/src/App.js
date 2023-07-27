@@ -17,6 +17,7 @@ import ForgotPasswordForm from "./ForgotPassword";
 import Footer from "./Footer";
 import Leaderboards from "./Leaderboards";
 import TestimonialForm from "./TestimonialForm";
+import UserPage from "./UserPage";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -113,30 +114,31 @@ function App() {
                 <Route path="/play" element={<Play />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/signup" element={<SignupForm />} />
+                <Route path="/id" element={<UserPage />} />
                 <Route
                   path="/forgot-password"
                   element={<ForgotPasswordForm />}
                 />
                 <Route path="/leaderboards"
-                      element ={<Leaderboards
-                      toast={toast}
-                      showToast={showToast}
-                      setShowToast={setShowToast}
-                      toastMessage={toastMessage}
-                      setToastMessage={setToastMessage}
-                      toastVariant={toastVariant}
-                      setToastVariant={setToastVariant}/>}
-                      />
+                  element={<Leaderboards
+                    toast={toast}
+                    showToast={showToast}
+                    setShowToast={setShowToast}
+                    toastMessage={toastMessage}
+                    setToastMessage={setToastMessage}
+                    toastVariant={toastVariant}
+                    setToastVariant={setToastVariant} />}
+                />
                 <Route path="/create-testimonial"
-                      element={<TestimonialForm
-                      toast={toast}
-                      showToast={showToast}
-                      setShowToast={setShowToast}
-                      toastMessage={toastMessage}
-                      setToastMessage={setToastMessage}
-                      toastVariant={toastVariant}
-                      setToastVariant={setToastVariant}/>}
-                      />
+                  element={<TestimonialForm
+                    toast={toast}
+                    showToast={showToast}
+                    setShowToast={setShowToast}
+                    toastMessage={toastMessage}
+                    setToastMessage={setToastMessage}
+                    toastVariant={toastVariant}
+                    setToastVariant={setToastVariant} />}
+                />
               </Routes>
             </div>
           </main>
