@@ -14,8 +14,9 @@ export default function UserPage() {
 
             if (response.ok) {
                 const data = await response.json();
-                setUser(data);
-                console.log(data);
+                setUser(data.user);
+                console.log(data.user);
+                console.log(user)
             } else {
                 setToken(null);
             }
@@ -28,5 +29,35 @@ export default function UserPage() {
         fetchUsers();
     }, [fetchUsers]);
 
-    // return()
+    return (
+        <>
+            <div className='container overflow-hidden'>
+                <h1>User Information</h1>
+                <table className='table table-striped'>
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Profile Picture</th>
+                            <th>Security Question</th>
+                            <th>Security Answer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr key={user.id}>
+                            <td>{user.first_name}</td>
+                            <td>{user.last_name}</td>
+                            <td>{user.username}</td>
+                            <td>{user.email}</td>
+                            <img src={user.profile_picture} style={{ height: 100, width: 100, marginRight: 20, borderRadius: '50%' }} alt="profile_pic" />
+                            <td>{user.security_question}</td>
+                            <td>{user.security_answer}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </>
+    )
 }
