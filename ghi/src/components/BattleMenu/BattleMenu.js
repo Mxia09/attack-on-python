@@ -25,17 +25,19 @@ export const BattleMenu = ({ question_id, onAnswerSelected }) => {
                     if (key.startsWith("choice_")) {
                         const option = question[key];
                         return (
-                            <button
-                                className={styles.option}
-                                key={key}
-                                onClick={() => {
-                                    setPlayerAnswer(option);
-                                    // Pass the player's answer and the correct answer to onAnswerSelected
-                                    onAnswerSelected(option, correctAnswer);
-                                }}
-                            >
-                                {option}
-                            </button>
+                            <div className={styles.buttongrid}>
+                                <button
+                                    className={styles.option}
+                                    key={key}
+                                    onClick={() => {
+                                        setPlayerAnswer(option);
+                                        // Pass the player's answer and the correct answer to onAnswerSelected
+                                        onAnswerSelected(option, correctAnswer);
+                                    }}
+                                >
+                                    {option}
+                                </button>
+                            </div>
                         );
                     }
                     return null;
