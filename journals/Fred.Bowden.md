@@ -53,3 +53,7 @@
 # **July 26, 2023**
 - debug unit tests for main branch
 - pushed unit tests to remote(waiting to merge for marv to update backend issue)
+
+# **July 27, 2023**
+- worked on readme
+- completed readme
