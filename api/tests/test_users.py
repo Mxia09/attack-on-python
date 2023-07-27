@@ -7,16 +7,16 @@ client = TestClient(app)
 class ExampleUserRepository:
     def get_all(self):
         return [
-        {
-            "id": "string",
-            "first_name": "string",
-            "last_name": "string",
-            "username": "string",
-            "email": "string",
-            "profile_picture": "string",
-            "security_question": "string",
-            "security_answer": "string"
-        }
+            {
+                "id": "string",
+                "first_name": "string",
+                "last_name": "string",
+                "username": "string",
+                "email": "string",
+                "profile_picture": "string",
+                "security_question": "string",
+                "security_answer": "string"
+            }
         ]
 
 class FakeUserRepository:
@@ -37,10 +37,10 @@ class FakeUserRepository:
             return None
 
 def test_get_one_user():
-    #arrange
+    # arrange
     app.dependency_overrides[UserRepository] = FakeUserRepository
 
-    #act
+    # act
     response = client.get("/api/users/test@email.com")
     expected = {
         "id": "1",
@@ -53,17 +53,17 @@ def test_get_one_user():
         "security_answer": "answer_string"
     }
 
-    #assert
+    # assert
     assert response.status_code == 200
     assert response.json() == expected
 
 
 def test_get_all_users():
 
-    #arrange
+    # arrange
     app.dependency_overrides[UserRepository] = ExampleUserRepository
     response = client.get("/api/users")
-    #act
+    # act
     app.dependency_overrides = {}
-    #assert
+    # assert
     assert response.status_code == 200

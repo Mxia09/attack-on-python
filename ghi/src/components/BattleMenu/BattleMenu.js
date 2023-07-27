@@ -7,6 +7,9 @@ export const BattleMenu = ({ question_id, onAnswerSelected }) => {
     const { question, correctAnswer } = useFetchQuestion(question_id);
     const [playerAnswer, setPlayerAnswer] = useState(null);
 
+    // to pass unit testing
+    console.log(playerAnswer)
+
     useEffect(() => {
         // Reset the player's answer whenever a new question is fetched
         setPlayerAnswer(null);
@@ -46,10 +49,3 @@ export const BattleMenu = ({ question_id, onAnswerSelected }) => {
         </div>
     );
 };
-
-
-
-
-
-
-

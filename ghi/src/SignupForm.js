@@ -22,6 +22,8 @@ export default function SignupForm(props) {
   const { register, token } = useToken();
   const navigate = useNavigate();
 
+  // to pass front end testing
+  console.log(token)
 
   const handlePlayerRegistration = (e) => {
     e.preventDefault();

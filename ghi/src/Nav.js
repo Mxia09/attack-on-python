@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import logo from "./images/attack-on-python-logo.png";
 import './darkMode.css'
-import useToken, { AuthContext } from "@galvanize-inc/jwtdown-for-react";
+import useToken from "@galvanize-inc/jwtdown-for-react";
 
 
 function Nav(props) {
