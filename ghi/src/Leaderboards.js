@@ -47,12 +47,9 @@ function Leaderboards(props) {
             </tr>
         )
     }
-    console.log(props)
+
     return (
         <div className="text-center">
-            <div style={{ position: 'fixed', right: 0, width: 200 }}>
-                {props.toast}
-            </div>
 
             <h1 style={{ marginTop: 20 }}>Leaderboards</h1>
 

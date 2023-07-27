@@ -1,43 +1,36 @@
-
-/* In your CSS file */
-
-/* Apply styles to the player and opponent sprites */
 .opponent,
 .user {
   display: flex;
   width: 100%;
-  padding: 25px;
+  padding: 15px;
   box-sizing: border-box;
-  gap: 10px; /* Add gap between elements */
+  gap: 10px;
 }
 
-/* Align opponent summary to the right */
+
 .opponent {
   align-items: flex-start;
   justify-content: flex-end;
 }
 
-/* Align player summary to the left */
+
 .user .summary {
   align-items: flex-end;
   justify-content: flex-start;
 }
 
-/* Set max height for the player and opponent sprite images */
 .opponentSprite img,
 .gameImages img {
-  height: 250px;
+  height: 150px;
 }
 
-/* Set height for the opponent sprite image */
 .opponentSprite img {
-  height: 200px;
+  height: 150px;
 }
 
 .hud {
     gap: 25px;
     width: 100%;
-    display: flex;
     justify-content: space-between;
 }
 
@@ -47,13 +40,12 @@
 
 .characters {
     width: 100%;
-    /* text-align: center; */
 }
 
 .gameImages {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    padding: 0px;
     box-sizing: border-box;
 }
 
@@ -77,6 +69,10 @@
 .damage {
     opacity: 1;
     animation: flash 0.3s 0.3s infinite;
+}
+
+.menu {
+    background-color: bisque;
 }
 @keyframes shake {
     0% {

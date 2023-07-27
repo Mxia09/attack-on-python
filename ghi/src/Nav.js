@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react"
 import { NavLink } from "react-router-dom";
 import logo from "./images/attack-on-python-logo.png";
 import './darkMode.css'
@@ -6,7 +7,28 @@ import useToken from "@galvanize-inc/jwtdown-for-react";
 
 function Nav(props) {
   const { logout, token } = useToken();
+  const [username, setUsername] = useState('');
 
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const url = 'http://localhost:8000/token'
+        const response = await fetch(url)
+        if (response.ok) {
+          const data = await response.json()
+          setUsername(data);
+        } else {
+          console.error(response)
+        }
+      } catch (error) {
+        console.error(error)
+      }
+    }
+    fetchData()
+  }, [])
+
+
+  console.log(username)
   const toggleTheme = () => {
     if (props.theme === 'light') {
       props.setTheme('dark');
@@ -21,7 +43,7 @@ function Nav(props) {
         <div className="container-fluid text-right">
           <NavLink className="navbar-brand" to="/"><img src={logo} alt="Logo" style={{ width: ' 70px', }} /></NavLink>
           {token ?
-            <p className="text-light text-right ms-auto mb-2 mb-lg-0" style={{ width: 100 }} >Hello, User</p>
+            <p className="text-light text-right ms-auto mb-2 mb-lg-0" style={{ width: 100 }} >Hello,</p>
             : null}
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
@@ -69,7 +91,6 @@ function Nav(props) {
                 </li>
               </ul>
             )}
-
           </div>
         </div>
 

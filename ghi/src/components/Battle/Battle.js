@@ -20,6 +20,7 @@ export const Battle = ({ onGameEnd }) => {
 
     const [currentQuestionId, setCurrentQuestionId] = useState(1);
 
+
     useEffect(() => {
         // Check if the player or opponent has lost all health
         if (playerHealth <= 0 || opponentHealth <= 0) {
@@ -49,8 +50,8 @@ export const Battle = ({ onGameEnd }) => {
                     maxHealth={opponentStats.maxHealth}
                 />
             </div>
-            <div className={styles.gameImages} style={{ width: 1500 }}>
-                <div className={styles.playerSprite} style={{ width: 1500 }}>
+            <div className={styles.gameImages} style={{ height: 170, position: "relative" }}>
+                <div className={styles.playerSprite}>
                     <img
                         alt={playerStats.name}
                         src={playerStats.img}
@@ -68,26 +69,26 @@ export const Battle = ({ onGameEnd }) => {
                         }
                     />
                 </div>
+                <div className={styles.opponentSprite}>
+                    <img
+                        src={opponentStats.img}
+                        alt={opponentStats.name}
+                        // IIFE for Opponent Animations
+                        className={
+                            (() => {
+                                if (opponentAnimation === "attack") {
+                                    return styles.attack;
+                                } else if (opponentAnimation === "damage") {
+                                    return styles.damage;
+                                } else {
+                                    return styles.static;
+                                }
+                            })()
+                        }
+                        style={{}}
+                    />
+                </div>
             </div>
-            <div className={styles.opponentSprite}>
-                <img
-                    src={opponentStats.img}
-                    alt={opponentStats.name}
-                    // IIFE for Opponent Animations
-                    className={
-                        (() => {
-                            if (opponentAnimation === "attack") {
-                                return styles.attack;
-                            } else if (opponentAnimation === "damage") {
-                                return styles.damage;
-                            } else {
-                                return styles.static;
-                            }
-                        })()
-                    }
-                />
-            </div>
-
             <div className={styles.user}>
                 <div className={styles.summary}>
                     <PlayerSummary
@@ -98,20 +99,20 @@ export const Battle = ({ onGameEnd }) => {
                         maxHealth={playerStats.maxHealth}
                     />
                 </div>
-                <div>
-                    <div className={styles.hud}>
-                        <div className={styles.hudChild}>
-                            <BattleMenu
-                                question_id={currentQuestionId}
-                                onAnswerSelected={handlePlayerAnswerCallback}
-                            />
-                        </div>
+            </div>
+            <div className={styles.menu} >
+                <div className={styles.hud}>
+                    {/* BattleAnnouncer component to display messages */}
+                    <BattleAnnouncer message={announcerMessage} />
+                </div>
+                <div className={styles.hud}>
+                    <div className={styles.hudChild}>
+                        <BattleMenu
+                            question_id={currentQuestionId}
+                            onAnswerSelected={handlePlayerAnswerCallback}
+                        />
                     </div>
                 </div>
-            </div>
-            <div className={styles.hud}>
-                {/* BattleAnnouncer component to display messages */}
-                <BattleAnnouncer message={announcerMessage} />
             </div>
         </div>
     );
