@@ -7,7 +7,7 @@ function Leaderboards(props) {
     useEffect(() => {
         async function fetchData() {
             try {
-                const url = 'http://localhost:8000/api/scores'
+                const url = `${process.env.REACT_APP_API_HOST}/api/scores`
                 const response = await fetch(url)
                 if (response.ok) {
                     const data = await response.json()
@@ -26,18 +26,19 @@ function Leaderboards(props) {
         fetchData()
     }, [props])
 
-
+    let counter = 1
     let tableRows;
     if (userList.length > 0) {
         tableRows = userList.map(user => {
             return (
                 <tr key={user.id} className="col">
-                    <td>{user.id}</td>
+                    <td>{counter}</td>
                     <td>{user.username}</td>
                     <td>{user.total_time}</td>
                 </tr>
             )
         })
+        counter += 1
     } else {
         tableRows = (
             <tr>
