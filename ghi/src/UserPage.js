@@ -29,35 +29,41 @@ export default function UserPage() {
         fetchUsers();
     }, [fetchUsers]);
 
+
     return (
-        <>
-            <div className='container overflow-hidden'>
-                <h1>User Information</h1>
-                <table className='table table-striped'>
-                    <thead>
-                        <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
-                            <th>Email</th>
-                            <th>Profile Picture</th>
-                            <th>Security Question</th>
-                            <th>Security Answer</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr key={user.id}>
-                            <td>{user.first_name}</td>
-                            <td>{user.last_name}</td>
-                            <td>{user.username}</td>
-                            <td>{user.email}</td>
-                            <img src={user.profile_picture} style={{ height: 100, width: 100, marginRight: 20, borderRadius: '50%' }} alt="profile_pic" />
-                            <td>{user.security_question}</td>
-                            <td>{user.security_answer}</td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div className="py-5">
+            <div className="container rounded-lg shadow p-246">
+                <div className="text-center">
+                    {user.profile_picture ? (
+                        <img
+                            className="rounded-circle border border-dark w-36 h-36"
+                            src={user.profile_picture}
+                            alt="Extra large avatar"
+                        />
+                    ) : (
+                        <img
+                            className="rounded-circle border border-primary w-36 h-36"
+                            src="https://cdn1.iconfinder.com/data/icons/random-115/24/person-512.png"
+                            alt="Extra large avatar"
+                        />
+                    )}
+                </div>
+                <div className="user-info text-center mt-4">
+                    <p className="h2 fw-bold">
+                        {user.first_name} {user.last_name}
+                    </p>
+                    <p className="h5 fw-bold">Username: {user.username}</p>
+                    <p className="h5 fw-bold">Email: {user.email}</p>
+                    <p className="h5 fw-bold">First Name: {user.first_name}</p>
+                    <p className="h5 fw-bold">Last Name: {user.last_name}</p>
+                    <p className="h5 fw-bold">Security Answer: {user.security_question}</p>
+                    <p className="h5 fw-bold">Security Question: {user.security_answer}</p>
+                </div>
             </div>
-        </>
-    )
+        </div>
+    );
+
+
+
+
 }
