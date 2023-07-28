@@ -9,7 +9,6 @@ from queries.testimonials import (
 
 router = APIRouter()
 
-# Create a testimonial
 @router.post("/api/testimonials", response_model=Union[TestimonialOut, Error])
 def create_testimonial(
     testimonial: TestimonialIn,
@@ -19,14 +18,12 @@ def create_testimonial(
     response.status_code = 200
     return repo.create(testimonial)
 
-# Get all testimonials
 @router.get("/api/testimonials", response_model=Union[List[TestimonialOut], Error])
 def get_all_testimonials(
     repo: TestimonialRepository = Depends(),
 ):
     return repo.get_all()
 
-# Update a testimonial by ID
 @router.put("/api/testimonials/{testimonial_id}", response_model=Union[TestimonialOut, Error])
 def update_testimonial(
     testimonial_id: int,
@@ -35,7 +32,6 @@ def update_testimonial(
 ) -> Union[TestimonialOut, Error]:
     return repo.update_testimonial(testimonial_id, testimonial)
 
-# Delete a testimonial by ID
 @router.delete("/api/testimonials/{testimonial_id}", response_model=bool)
 def delete_testimonial(
     testimonial_id: int,
@@ -43,7 +39,6 @@ def delete_testimonial(
 ) -> bool:
     return repo.delete_testimonial(testimonial_id)
 
-# Get one testimonial by ID
 @router.get("/api/testimonials/{testimonial_id}", response_model=Optional[TestimonialOut])
 def get_one_testimonial(
     testimonial_id: int,

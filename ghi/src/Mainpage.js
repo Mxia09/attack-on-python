@@ -5,6 +5,7 @@ import "keen-slider/keen-slider.min.css";
 import "./carousel.css";
 import "./slider.css";
 import useToken from "@galvanize-inc/jwtdown-for-react";
+import axios from 'axios';
 
 
 function Mainpage() {
@@ -19,6 +20,16 @@ function Mainpage() {
       setTestimonials(data)
     } else {
       console.error(response)
+    }
+  }
+
+  const deleteTestimonial = async (testimonialId) => {
+    try {
+      await axios.delete(`${process.env.REACT_APP_API_HOST}/api/testimonials/${testimonialId}`);
+      const filteredTestimonials = testimonials.filter((testimonial) => testimonial.id !== testimonialId);
+      setTestimonials(filteredTestimonials);
+    } catch (error) {
+      console.error("Error deleting testimonial:", error);
     }
   }
 
@@ -108,6 +119,7 @@ function Mainpage() {
                     <p style={{ fontWeight: "bold", marginBottom: 5 }}>{review.name}</p>
                     <p style={{ marginBottom: 5 }}>{review.review}</p>
                     <p style={{ fontStyle: "italic" }}>"{review.comments}"</p>
+                    <button style={{ backgroundColor: "red", color: "white" }} onClick={() => deleteTestimonial(review.id)}>Delete</button>
                   </div>
                 </div>
               ))}
