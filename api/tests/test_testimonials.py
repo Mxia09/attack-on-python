@@ -1,10 +1,10 @@
-from fastapi.testclient import TestClient #  send test requests to fastapi
-from main import app #  fast api application
-from queries.testimonials import TestimonialRepository #  interact with the db
+from fastapi.testclient import TestClient
+from main import app
+from queries.testimonials import TestimonialRepository
 
-client = TestClient(app) #  instance of test client
+client = TestClient(app)
 
-class ExampleTestimonialRepository: #  override actual db/ only need method we are testing
+class ExampleTestimonialRepository:
     def get_all(self):
         return [
             {
@@ -30,18 +30,16 @@ class CreateTestimonialRepository:
 
 def test_get_all_testimonials():
 
-    #  arrange
     app.dependency_overrides[TestimonialRepository] = ExampleTestimonialRepository
 
     response = client.get("/api/testimonials")
-    #  act
+
     app.dependency_overrides = {}
-    #  assert
+
     assert response.status_code == 200
 
 def test_create_testimonials():
 
-    #  arrange
     app.dependency_overrides[TestimonialRepository] = CreateTestimonialRepository
 
     json = {
@@ -60,8 +58,8 @@ def test_create_testimonials():
     }
 
     response = client.post("/api/testimonials", json=json)
-    #  act
+
     app.dependency_overrides = {}
-    #  assert
+
     assert response.status_code == 200
     assert response.json() == expected
