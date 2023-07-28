@@ -9,6 +9,8 @@ Collaborate together with Max to Develop our back end authentication. with jwt
 ## July 13, 2023
 Worked on creating dark mode for the site
 
+## July 14,2023
+Finished up ironing out back end for scores
 
 ## July 19, 2023
 Troubleshooting Errors with previous merges to recieve the most up to date code along with work on creating carousel feature for our mainpage front end.
@@ -27,3 +29,6 @@ Made modifications for Testimonials back end along with creating a form to allow
 
 ## July 26,2023
 Working on fixing Sign up and login form on the front end to successfully generate a token. Finishing up game components to be able to have a fully functional battle scene. Pushing changes to main.
+
+## July 27, 2023
+Worked on front end game styling and modifying components. Along with Front end leaderboard fix to allow connection to back end scores.
