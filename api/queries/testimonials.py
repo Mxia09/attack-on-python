@@ -1,8 +1,8 @@
-from pydantic import BaseModel #for data validation
-from typing import List, Union, Optional #function return types
-from queries.pool import pool #db connection pool object/contains connection settings to db
+from pydantic import BaseModel #  for data validation
+from typing import List, Union, Optional #  function return types
+from queries.pool import pool #  db connection pool object/contains connection settings to db
 
-#Queries use db connection, established through migrations, to interact with data in response to client requests.
+#  Queries use db connection, established through migrations, to interact with data in response to client requests.
 
 class Error(BaseModel):
     message: str
