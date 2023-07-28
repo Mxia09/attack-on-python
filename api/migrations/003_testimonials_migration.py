@@ -16,3 +16,5 @@ steps = [
         """
     ]
 ]
+
+#Defines testimonials database schema. This ensures the database table exists.

@@ -1,10 +1,10 @@
-from fastapi.testclient import TestClient
-from main import app
-from queries.testimonials import TestimonialRepository
+from fastapi.testclient import TestClient #send test requests to fastapi
+from main import app #fast api application
+from queries.testimonials import TestimonialRepository #interact with the db
 
-client = TestClient(app)
+client = TestClient(app) #instance of test client
 
-class ExampleTestimonialRepository:
+class ExampleTestimonialRepository: #override actual db/ only need method we are testing
     def get_all(self):
         return [
             {

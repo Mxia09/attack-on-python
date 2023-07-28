@@ -7,6 +7,8 @@ from queries.testimonials import (
     TestimonialRepository
 )
 
+#Router receives http requests(url/method) and directs the request to the appropriate function
+
 router = APIRouter()
 
 # Create a testimonial
