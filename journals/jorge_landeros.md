@@ -147,22 +147,22 @@
 
 - Monday:
 
-  1.
-
-  2.
+  1.Started CD/CI
+  came to a bunch of erros of the lint test and fixing every one
 
 - Tuesday:
 
-  1. CD/CI
-     Staring CD/CI
+  1. Continuing CD/CI
+     Fixed all the errors and now it is failing some of the back end pipeline
+     Going over the erros and fixing them line by line
 
-  2.Unit Test
-  Started creating my part on the unit tests.
+  2. Unit Test
+     Started creating my part on the unit tests.
 
 - Wednesday:
 
-  1. After working on CD/CI Yesterday I came across a road bloack but today I fixed it by fixing all lint issues.
-     Tidious work but relieved it wasnt too much errors.
+  1. Finished CD/CD
+     Finished CI/CD and now back end is deployed now time for front end to be deployed!!!
 
 - Thursday:
 
@@ -173,4 +173,5 @@
 
 - Friday:
 
-  1. MVP
+  1. Finishing CSS files for Userpage
+     Changed the image to be bigger and also changed the font on the information
